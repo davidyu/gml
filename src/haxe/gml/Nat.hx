@@ -1,3 +1,5 @@
+package gml;
+
 interface Nat {}
 
 class Zero implements Nat {}

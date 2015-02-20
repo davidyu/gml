@@ -1,4 +1,6 @@
-import Nat;
+package gml.vector;
+
+import gml.Nat;
 
 // generic vector
 abstract Vec<N:Nat, T>( Array<T> ) {
