@@ -74,6 +74,9 @@ abstract Vecf<N:Nat>( Array<Float> ) {
     @:op(A == B)
     public function eq( rhs: Vecf<N> ): Bool {
         if ( this.length != rhs.length ) return false;
+        for ( i in 0...this.length ) {
+            if ( this[i] != rhs[i] ) return false;
+        }
         return true;
     }
 
