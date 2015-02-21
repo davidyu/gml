@@ -83,7 +83,3 @@ abstract Vecf<N:Nat>( Array<Float> ) {
         return new Vecf<S<N>>( this );
     }
 }
-
-typedef Vec2f = Vecf<Two>;
-typedef Vec3f = Vecf<Three>;
-typedef Vec4f = Vecf<Four>;
