@@ -4,9 +4,13 @@ import gml.Nat;
 import gml.vector.Vec;
 import gml.vector.Vec2f;
 
-@:forward
+@:forward(dot)
 abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
     public function new( x, y, z ) { this = new Vecf<Three>( [x, y, z] ); }
+
+    private inline function vecf():Vecf<Three> {
+        return this;
+    }
 
     public var x(get, set): Float;
     public var y(get, set): Float;
@@ -25,6 +29,31 @@ abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
     @:arrayAccess
     public inline function set( i: Int, v: Float ): Float {
         return this.set( i, v );
+    }
+
+    @:op(A + B)
+    public static inline function add( lhs: Vec3f, rhs : Vec3f ): Vec3f {
+        return lhs.vecf().add( rhs.vecf() );
+    }
+
+    @:op(A - B)
+    public static inline function sub( lhs: Vec3f, rhs : Vec3f ): Vec3f {
+        return lhs.vecf().sub( rhs.vecf() );
+    }
+
+    @:op(A * B)
+    public static inline function mul_f( lhs: Vec3f, rhs : Vec3f ): Vec3f {
+        return lhs.vecf().mul( rhs.vecf() );
+    }
+
+    @:op(A * B) @:commutative
+    public static inline function smul_f( lhs: Vec3f, rhs : Float ): Vec3f {
+        return lhs.vecf().smul( rhs );
+    }
+
+    @:op(A == B)
+    public static inline function eq_f( lhs: Vec3f, rhs : Vec3f ): Bool {
+        return lhs.vecf().eq( rhs.vecf() );
     }
 
     public function get_x() {

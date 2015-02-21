@@ -3,9 +3,13 @@ package gml.vector;
 import gml.vector.Vec;
 import gml.Nat;
 
-@:forward
+@:forward(dot)
 abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
     public function new( x, y ) { this = new Vecf<Two>( [x, y] ); }
+
+    private inline function vecf():Vecf<Two> {
+        return this;
+    }
 
     public var x(get, set): Float;
     public var y(get, set): Float;
@@ -20,6 +24,31 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
     @:arrayAccess
     public inline function set( i: Int, v: Float ): Float {
         return this.set( i, v );
+    }
+
+    @:op(A + B)
+    public static inline function add( lhs: Vec2f, rhs : Vec2f ): Vec2f {
+        return lhs.vecf().add( rhs.vecf() );
+    }
+
+    @:op(A - B)
+    public static inline function sub( lhs: Vec2f, rhs : Vec2f ): Vec2f {
+        return lhs.vecf().sub( rhs.vecf() );
+    }
+
+    @:op(A * B)
+    public static inline function mul_f( lhs: Vec2f, rhs : Vec2f ): Vec2f {
+        return lhs.vecf().mul( rhs.vecf() );
+    }
+
+    @:op(A * B) @:commutative
+    public static inline function smul_f( lhs: Vec2f, rhs : Float ): Vec2f {
+        return lhs.vecf().smul( rhs );
+    }
+
+    @:op(A == B)
+    public static inline function eq_f( lhs: Vec2f, rhs : Vec2f ): Bool {
+        return lhs.vecf().eq( rhs.vecf() );
     }
 
     public function get_x() {

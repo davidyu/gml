@@ -26,6 +26,7 @@ abstract Vec<N:Nat, T>( Array<T> ) {
 }
 
 // a more useful vector
+@:forward(length)
 abstract Vecf<N:Nat>( Array<Float> ) {
     public function new( xs: Array<Float> ) { this = xs; }
 
@@ -63,11 +64,17 @@ abstract Vecf<N:Nat>( Array<Float> ) {
     }
 
     // scalar-vector
-    @:op(A * B)
-    public function smul( rhs : Float ): Vecf<N> {
+    @:op(A * B) @:commutative
+    public static function smul<N>( lhs: Vecf<N>, rhs : Float ): Vecf<N> {
         var res = new Array<Float>();
-        for ( i in 0...this.length ) res.push( this[i] * rhs );
+        for ( i in 0...lhs.length ) res.push( lhs[i] * rhs );
         return new Vecf<N>( res );
+    }
+
+    @:op(A == B)
+    public function eq( rhs: Vecf<N> ): Bool {
+        if ( this.length != rhs.length ) return false;
+        return true;
     }
 
     public function dot( rhs : Vecf<N> ): Float {
