@@ -51,6 +51,10 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
         return lhs.vecf().eq( rhs.vecf() );
     }
 
+    public function cross( rhs: Vec2f ): Float {
+        return this[0] * rhs[1] - this[1] * rhs[0];
+    }
+
     public function get_x() {
         return this[0];
     }

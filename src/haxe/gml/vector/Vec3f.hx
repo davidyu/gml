@@ -56,6 +56,12 @@ abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
         return lhs.vecf().eq( rhs.vecf() );
     }
 
+    public function cross( rhs: Vec3f ): Vec3f {
+        return new Vec3f( this[1] * rhs[2] - this[2] * rhs[1]
+                        , this[2] * rhs[0] - this[0] * rhs[2]
+                        , this[0] * rhs[1] - this[1] * rhs[0] );
+    }
+
     public function get_x() {
         return this[0];
     }
