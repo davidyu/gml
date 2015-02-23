@@ -26,7 +26,6 @@ abstract Vec<N:Nat, T>( Array<T> ) {
 }
 
 // a more useful vector
-@:forward(length)
 abstract Vecf<N:Nat>( Array<Float> ) {
     public function new( xs: Array<Float> ) { this = xs; }
 
@@ -91,5 +90,15 @@ abstract Vecf<N:Nat>( Array<Float> ) {
     public function push(x: Float): Vecf<S<N>> {
         this.push( x );
         return new Vecf<S<N>>( this );
+    }
+
+    public function lensq(): Float {
+        var res = 0.0;
+        for ( i in 0...this.length ) res += this[i] * this[i];
+        return res;
+    }
+
+    public function len(): Float {
+        return Math.sqrt( lensq() );
     }
 }

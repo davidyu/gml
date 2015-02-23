@@ -3,7 +3,7 @@ package gml.vector;
 import gml.vector.Vec;
 import gml.Nat;
 
-@:forward(dot)
+@:forward(dot, lensq, len)
 abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
     public function new( x, y ) { this = new Vecf<Two>( [x, y] ); }
 
