@@ -36,6 +36,11 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
         return lhs.vecf().sub( rhs.vecf() );
     }
 
+    @:op(-B)
+    public static inline function negate( rhs: Vec2f ): Vec2f {
+        return rhs.vecf().negate();
+    }
+
     @:op(A * B)
     public static inline function mul_f( lhs: Vec2f, rhs : Vec2f ): Vec2f {
         return lhs.vecf().mul( rhs.vecf() );

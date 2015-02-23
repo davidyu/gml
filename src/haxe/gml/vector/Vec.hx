@@ -26,6 +26,7 @@ abstract Vec<N:Nat, T>( Array<T> ) {
 }
 
 // a more useful vector
+@:forward( length )
 abstract Vecf<N:Nat>( Array<Float> ) {
     public function new( xs: Array<Float> ) { this = xs; }
 
@@ -51,6 +52,13 @@ abstract Vecf<N:Nat>( Array<Float> ) {
     public function sub( rhs : Vecf<N> ): Vecf<N> {
         var res = new Array<Float>();
         for ( i in 0...this.length ) res.push( this[i] - rhs[i] );
+        return new Vecf<N>( res );
+    }
+
+    @:op(-B)
+    public function negate(): Vecf<N> {
+        var res = new Array<Float>();
+        for ( i in 0...this.length ) res.push( -this[i] );
         return new Vecf<N>( res );
     }
 

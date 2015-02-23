@@ -103,6 +103,9 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertTrue( g == h );
         assertEquals( g.x, f * a.x );
         assertEquals( g.y, f * a.y );
+        var i = -a;
+        assertEquals( i.x, -a.x );
+        assertEquals( i.y, -a.y );
     }
 
     public function testVector3() {
@@ -127,6 +130,10 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertEquals( g.x, f * a.x );
         assertEquals( g.y, f * a.y );
         assertEquals( g.z, f * a.z );
+        var i = -a;
+        assertEquals( i.x, -a.x );
+        assertEquals( i.y, -a.y );
+        assertEquals( i.z, -a.z );
     }
 
     public function testVector4() {
@@ -155,6 +162,11 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertEquals( g.y, f * a.y );
         assertEquals( g.z, f * a.z );
         assertEquals( g.w, f * a.w );
+        var i = -a;
+        assertEquals( i.x, -a.x );
+        assertEquals( i.y, -a.y );
+        assertEquals( i.z, -a.z );
+        assertEquals( i.w, -a.w );
     }
 
     public function testUnsafeVectors() {
@@ -191,6 +203,13 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertEquals( g[3], a[3] * f );
         assertEquals( g[4], a[4] * f );
         assertEquals( g[5], a[5] * f );
+        var i = -a;
+        assertEquals( i[0], -a[0] );
+        assertEquals( i[1], -a[1] );
+        assertEquals( i[2], -a[2] );
+        assertEquals( i[3], -a[3] );
+        assertEquals( i[4], -a[4] );
+        assertEquals( i[5], -a[5] );
     }
 
     public function testLargeVector() {
@@ -225,6 +244,11 @@ class TestComponentOps extends haxe.unit.TestCase {
 
         for ( i in 0 ... 100 ) {
             assertEquals( g[i], a[i] * f );
+        }
+
+        var i = -a;
+        for ( j in 0 ... 100 ) {
+            assertEquals( i[j], -a[j] );
         }
     }
 }

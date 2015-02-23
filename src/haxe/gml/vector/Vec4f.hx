@@ -45,6 +45,11 @@ abstract Vec4f( Vecf<Four> ) from Vecf<Four> to Vecf<Four> {
         return lhs.vecf().sub( rhs.vecf() );
     }
 
+    @:op(-B)
+    public static inline function negate( rhs: Vec4f ): Vec4f {
+        return rhs.vecf().negate();
+    }
+
     @:op(A * B)
     public static inline function mul_f( lhs: Vec4f, rhs : Vec4f ): Vec4f {
         return lhs.vecf().mul( rhs.vecf() );

@@ -41,6 +41,11 @@ abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
         return lhs.vecf().sub( rhs.vecf() );
     }
 
+    @:op(-B)
+    public static inline function negate( rhs: Vec3f ): Vec3f {
+        return rhs.vecf().negate();
+    }
+
     @:op(A * B)
     public static inline function mul_f( lhs: Vec3f, rhs : Vec3f ): Vec3f {
         return lhs.vecf().mul( rhs.vecf() );
