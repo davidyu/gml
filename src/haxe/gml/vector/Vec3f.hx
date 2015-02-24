@@ -56,6 +56,21 @@ abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
         return lhs.vecf().smul( rhs );
     }
 
+    @:op(A / B)
+    public static inline function div( lhs: Vec3f, rhs: Vec3f ): Vec3f {
+        return lhs.vecf().div( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function sdiv( lhs: Vec3f, rhs: Float ): Vec3f {
+        return lhs.vecf().sdiv( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function recip( lhs: Float, rhs: Vec3f ): Vec3f {
+        return Vecf.recip( lhs, rhs.vecf() );
+    }
+
     @:op(A == B)
     public static inline function eq_f( lhs: Vec3f, rhs : Vec3f ): Bool {
         return lhs.vecf().eq( rhs.vecf() );

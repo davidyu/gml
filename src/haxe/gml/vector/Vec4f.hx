@@ -60,6 +60,21 @@ abstract Vec4f( Vecf<Four> ) from Vecf<Four> to Vecf<Four> {
         return lhs.vecf().smul( rhs );
     }
 
+    @:op(A / B)
+    public static inline function div( lhs: Vec4f, rhs: Vec4f ): Vec4f {
+        return lhs.vecf().div( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function sdiv( lhs: Vec4f, rhs: Float ): Vec4f {
+        return lhs.vecf().sdiv( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function recip( lhs: Float, rhs: Vec4f ): Vec4f {
+        return Vecf.recip( lhs, rhs.vecf() );
+    }
+
     @:op(A == B)
     public static inline function eq_f( lhs: Vec4f, rhs : Vec4f ): Bool {
         return lhs.vecf().eq( rhs.vecf() );

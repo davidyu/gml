@@ -3,7 +3,7 @@ package gml.vector;
 import gml.vector.Vec;
 import gml.Nat;
 
-@:forward(dot, lensq, len)
+@:forward(dot, lensq, len, normalize)
 abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
     public function new( x, y ) { this = new Vecf<Two>( [x, y] ); }
 
@@ -49,6 +49,21 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
     @:op(A * B) @:commutative
     public static inline function smul_f( lhs: Vec2f, rhs : Float ): Vec2f {
         return lhs.vecf().smul( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function div( lhs: Vec2f, rhs: Vec2f ): Vec2f {
+        return lhs.vecf().div( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function sdiv( lhs: Vec2f, rhs: Float ): Vec2f {
+        return lhs.vecf().sdiv( rhs );
+    }
+
+    @:op(A / B)
+    public static inline function recip( lhs: Float, rhs: Vec2f ): Vec2f {
+        return Vecf.recip( lhs, rhs.vecf() );
     }
 
     @:op(A == B)

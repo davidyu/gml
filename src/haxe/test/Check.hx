@@ -8,6 +8,15 @@ import gml.vector.Vec4f;
 
 using gml.vector.Vec2f;
 
+// floating point utils
+class FPU {
+    public static function roughly( a: Float, b: Float, e: Float = 0.00000001 ) {
+        if ( a == b ) return true;
+        else return Math.abs( a - b ) < e;
+    }
+
+}
+
 class Check {
     static function main() {
         var r = new haxe.unit.TestRunner();
@@ -106,6 +115,9 @@ class TestComponentOps extends haxe.unit.TestCase {
         var i = -a;
         assertEquals( i.x, -a.x );
         assertEquals( i.y, -a.y );
+        var j = a / f;
+        assertTrue( FPU.roughly( j.x, a.x / f ) );
+        assertTrue( FPU.roughly( j.y, a.y / f ) );
     }
 
     public function testVector3() {
@@ -134,6 +146,10 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertEquals( i.x, -a.x );
         assertEquals( i.y, -a.y );
         assertEquals( i.z, -a.z );
+        var j = a / f;
+        assertTrue( FPU.roughly( j.x, a.x / f ) );
+        assertTrue( FPU.roughly( j.y, a.y / f ) );
+        assertTrue( FPU.roughly( j.z, a.z / f ) );
     }
 
     public function testVector4() {
@@ -167,6 +183,11 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertEquals( i.y, -a.y );
         assertEquals( i.z, -a.z );
         assertEquals( i.w, -a.w );
+        var j = a / f;
+        assertTrue( FPU.roughly( j.x, a.x / f ) );
+        assertTrue( FPU.roughly( j.y, a.y / f ) );
+        assertTrue( FPU.roughly( j.z, a.z / f ) );
+        assertTrue( FPU.roughly( j.w, a.w / f ) );
     }
 
     public function testUnsafeVectors() {
