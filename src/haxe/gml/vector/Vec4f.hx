@@ -5,7 +5,7 @@ import gml.vector.Vec;
 import gml.vector.Vec2f;
 import gml.vector.Vec3f;
 
-@:forward(dot, lensq, len)
+@:forward(dot, lensq, len, normalize)
 abstract Vec4f( Vecf<Four> ) from Vecf<Four> to Vecf<Four> {
     public function new( x, y, z, w ) { this = new Vecf<Four>( [x, y, z, w] ); }
 

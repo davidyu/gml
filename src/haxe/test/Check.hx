@@ -22,6 +22,7 @@ class Check {
         var r = new haxe.unit.TestRunner();
         r.add( new TestInstantiation() );
         r.add( new TestComponentOps() );
+        r.add( new TestLengthNormalize() );
         r.run();
     }
 }
@@ -231,6 +232,13 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertEquals( i[3], -a[3] );
         assertEquals( i[4], -a[4] );
         assertEquals( i[5], -a[5] );
+        var j = a / f;
+        assertTrue( FPU.roughly( j[0], a[0] / f ) );
+        assertTrue( FPU.roughly( j[1], a[1] / f ) );
+        assertTrue( FPU.roughly( j[2], a[2] / f ) );
+        assertTrue( FPU.roughly( j[3], a[3] / f ) );
+        assertTrue( FPU.roughly( j[4], a[4] / f ) );
+        assertTrue( FPU.roughly( j[5], a[5] / f ) );
     }
 
     public function testLargeVector() {
@@ -271,5 +279,46 @@ class TestComponentOps extends haxe.unit.TestCase {
         for ( j in 0 ... 100 ) {
             assertEquals( i[j], -a[j] );
         }
+
+        var j = a / f;
+        for ( i in 0 ... 100 ) {
+            assertTrue( FPU.roughly( j[i], a[i] / f ) );
+        }
+    }
+}
+
+class TestLengthNormalize extends haxe.unit.TestCase {
+    public function testVector2() {
+        var a = new Vec2f( Math.random(), Math.random() );
+        var n = a.normalize();
+        assertTrue( FPU.roughly( n.len(), 1.0 ) );
+        assertTrue( FPU.roughly( n.lensq(), 1.0 ) );
+    }
+
+    public function testVector3() {
+        var a = new Vec3f( Math.random(), Math.random(), Math.random() );
+        var n = a.normalize();
+        assertTrue( FPU.roughly( n.len(), 1.0 ) );
+        assertTrue( FPU.roughly( n.lensq(), 1.0 ) );
+    }
+
+    public function testVector4() {
+        var a = new Vec4f( Math.random(), Math.random(), Math.random(), Math.random() );
+        var n = a.normalize();
+        assertTrue( FPU.roughly( n.len(), 1.0 ) );
+        assertTrue( FPU.roughly( n.lensq(), 1.0 ) );
+    }
+
+    public function testLargeVector() {
+        function genRandomArr( sz : Int ) {
+            var res = [];
+            for ( i in 0...sz ) res.push( Math.random() );
+            return res;
+        }
+
+        var a = new Vecf<Hundred>( genRandomArr( 100 ) );
+        var n = a.normalize();
+        assertTrue( FPU.roughly( n.len(), 1.0 ) );
+        assertTrue( FPU.roughly( n.lensq(), 1.0 ) );
     }
 }
