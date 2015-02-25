@@ -14,7 +14,6 @@ class FPU {
         if ( a == b ) return true;
         else return Math.abs( a - b ) < e;
     }
-
 }
 
 class Check {
@@ -119,6 +118,12 @@ class TestComponentOps extends haxe.unit.TestCase {
         var j = a / f;
         assertTrue( FPU.roughly( j.x, a.x / f ) );
         assertTrue( FPU.roughly( j.y, a.y / f ) );
+        var k = f / a;
+        assertTrue( FPU.roughly( k.x, f / a.x ) );
+        assertTrue( FPU.roughly( k.y, f / a.y ) );
+        var l = a / b;
+        assertTrue( FPU.roughly( l.x, a.x / b.x ) );
+        assertTrue( FPU.roughly( l.y, a.y / b.y ) );
     }
 
     public function testVector3() {
@@ -151,6 +156,14 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertTrue( FPU.roughly( j.x, a.x / f ) );
         assertTrue( FPU.roughly( j.y, a.y / f ) );
         assertTrue( FPU.roughly( j.z, a.z / f ) );
+        var k = f / a;
+        assertTrue( FPU.roughly( k.x, f / a.x ) );
+        assertTrue( FPU.roughly( k.y, f / a.y ) );
+        assertTrue( FPU.roughly( k.z, f / a.z ) );
+        var l = a / b;
+        assertTrue( FPU.roughly( l.x, a.x / b.x ) );
+        assertTrue( FPU.roughly( l.y, a.y / b.y ) );
+        assertTrue( FPU.roughly( l.z, a.z / b.z ) );
     }
 
     public function testVector4() {
@@ -189,6 +202,16 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertTrue( FPU.roughly( j.y, a.y / f ) );
         assertTrue( FPU.roughly( j.z, a.z / f ) );
         assertTrue( FPU.roughly( j.w, a.w / f ) );
+        var k = f / a;
+        assertTrue( FPU.roughly( k.x, f / a.x ) );
+        assertTrue( FPU.roughly( k.y, f / a.y ) );
+        assertTrue( FPU.roughly( k.z, f / a.z ) );
+        assertTrue( FPU.roughly( k.w, f / a.w ) );
+        var l = a / b;
+        assertTrue( FPU.roughly( l.x, a.x / b.x ) );
+        assertTrue( FPU.roughly( l.y, a.y / b.y ) );
+        assertTrue( FPU.roughly( l.z, a.z / b.z ) );
+        assertTrue( FPU.roughly( l.w, a.w / b.w ) );
     }
 
     public function testUnsafeVectors() {
@@ -239,6 +262,20 @@ class TestComponentOps extends haxe.unit.TestCase {
         assertTrue( FPU.roughly( j[3], a[3] / f ) );
         assertTrue( FPU.roughly( j[4], a[4] / f ) );
         assertTrue( FPU.roughly( j[5], a[5] / f ) );
+        var k = f / a;
+        assertTrue( FPU.roughly( k[0], f / a[0] ) );
+        assertTrue( FPU.roughly( k[1], f / a[1] ) );
+        assertTrue( FPU.roughly( k[2], f / a[2] ) );
+        assertTrue( FPU.roughly( k[3], f / a[3] ) );
+        assertTrue( FPU.roughly( k[4], f / a[4] ) );
+        assertTrue( FPU.roughly( k[5], f / a[5] ) );
+        var l = a / b;
+        assertTrue( FPU.roughly( l[0], a[0] / b[0] ) );
+        assertTrue( FPU.roughly( l[1], a[1] / b[1] ) );
+        assertTrue( FPU.roughly( l[2], a[2] / b[2] ) );
+        assertTrue( FPU.roughly( l[3], a[3] / b[3] ) );
+        assertTrue( FPU.roughly( l[4], a[4] / b[4] ) );
+        assertTrue( FPU.roughly( l[5], a[5] / b[5] ) );
     }
 
     public function testLargeVector() {
@@ -283,6 +320,16 @@ class TestComponentOps extends haxe.unit.TestCase {
         var j = a / f;
         for ( i in 0 ... 100 ) {
             assertTrue( FPU.roughly( j[i], a[i] / f ) );
+        }
+
+        var k = f / a;
+        for ( i in 0 ... 100 ) {
+            assertTrue( FPU.roughly( k[i], f / a[i] ) );
+        }
+
+        var l = a / b;
+        for ( i in 0 ... 100 ) {
+            assertTrue( FPU.roughly( l[i], a[i ]/ b[i] ) );
         }
     }
 }
