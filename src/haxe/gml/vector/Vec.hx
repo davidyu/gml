@@ -72,7 +72,7 @@ abstract Vecf<N:Nat>( Array<Float> ) {
 
     // scalar-vector
     @:op(A * B) @:commutative
-    public static inline function smul<N>( lhs: Vecf<N>, rhs : Float ): Vecf<N> {
+    public static inline function smul<N:Nat>( lhs: Vecf<N>, rhs : Float ): Vecf<N> {
         var res = new Array<Float>();
         for ( i in 0...lhs.length ) res.push( lhs[i] * rhs );
         return new Vecf<N>( res );
@@ -80,21 +80,21 @@ abstract Vecf<N:Nat>( Array<Float> ) {
 
     // componense-wise
     @:op(A / B)
-    public static function div<N>( lhs: Vecf<N>, rhs: Vecf<N> ): Vecf<N> {
+    public inline function div( rhs: Vecf<N> ): Vecf<N> {
         var res = new Array<Float>();
-        for ( i in 0...lhs.length ) res.push( lhs[i] / rhs[i] );
+        for ( i in 0...this.length ) res.push( this[i] / rhs[i] );
         return new Vecf<N>( res );
     }
 
     // vector / scalar division
     @:op(A / B)
-    public static inline function sdiv<N>( lhs: Vecf<N>, rhs: Float ): Vecf<N> {
+    public static inline function sdiv<N:Nat>( lhs: Vecf<N>, rhs: Float ): Vecf<N> {
         return smul( lhs, 1/rhs );
     }
 
     // scalar/ vector division
     @:op(A / B)
-    public static function recip<N>( lhs: Float, rhs: Vecf<N> ): Vecf<N> {
+    public static function recip<N:Nat>( lhs: Float, rhs: Vecf<N> ): Vecf<N> {
         var res = new Array<Float>();
         for ( i in 0...rhs.length ) res.push( lhs / rhs[i] );
         return new Vecf<N>( res );
@@ -125,7 +125,8 @@ abstract Vecf<N:Nat>( Array<Float> ) {
         return Math.sqrt( lensq() );
     }
 
-    public static function normalize<N>( lhs: Vecf<N> ): Vecf<N> {
+    public function normalize( ): Vecf<N> {
+        var lhs = new Vecf<N>( this );
         return sdiv( lhs, lhs.len() );
     }
 

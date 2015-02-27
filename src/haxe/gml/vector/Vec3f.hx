@@ -47,13 +47,13 @@ abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
     }
 
     @:op(A * B)
-    public static inline function mul_f( lhs: Vec3f, rhs : Vec3f ): Vec3f {
+    public static inline function mul( lhs: Vec3f, rhs : Vec3f ): Vec3f {
         return lhs.vecf().mul( rhs.vecf() );
     }
 
     @:op(A * B) @:commutative
     public static inline function smul_f( lhs: Vec3f, rhs : Float ): Vec3f {
-        return lhs.vecf().smul( rhs );
+        return Vecf.smul( lhs, rhs );
     }
 
     @:op(A / B)
@@ -63,7 +63,7 @@ abstract Vec3f( Vecf<Three> ) from Vecf<Three> to Vecf<Three> {
 
     @:op(A / B)
     public static inline function sdiv( lhs: Vec3f, rhs: Float ): Vec3f {
-        return lhs.vecf().sdiv( rhs );
+        return Vecf.sdiv( lhs, rhs );
     }
 
     @:op(A / B)

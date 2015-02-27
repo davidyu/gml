@@ -42,13 +42,13 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
     }
 
     @:op(A * B)
-    public static inline function mul_f( lhs: Vec2f, rhs : Vec2f ): Vec2f {
+    public static inline function mul( lhs: Vec2f, rhs : Vec2f ): Vec2f {
         return lhs.vecf().mul( rhs.vecf() );
     }
 
     @:op(A * B) @:commutative
-    public static inline function smul_f( lhs: Vec2f, rhs : Float ): Vec2f {
-        return lhs.vecf().smul( rhs );
+    public static inline function smul( lhs: Vec2f, rhs : Float ): Vec2f {
+        return Vecf.smul( lhs, rhs );
     }
 
     @:op(A / B)
@@ -58,7 +58,7 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
 
     @:op(A / B)
     public static inline function sdiv( lhs: Vec2f, rhs: Float ): Vec2f {
-        return lhs.vecf().sdiv( rhs );
+        return Vecf.sdiv( lhs, rhs );
     }
 
     @:op(A / B)
