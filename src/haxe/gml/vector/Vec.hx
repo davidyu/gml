@@ -78,7 +78,7 @@ abstract Vecf<N:Nat>( Array<Float> ) {
         return new Vecf<N>( res );
     }
 
-    // componense-wise
+    // componentwise
     @:op(A / B)
     public inline function div( rhs: Vecf<N> ): Vecf<N> {
         var res = new Array<Float>();
@@ -92,7 +92,7 @@ abstract Vecf<N:Nat>( Array<Float> ) {
         return smul( lhs, 1/rhs );
     }
 
-    // scalar/ vector division
+    // scalar / vector division
     @:op(A / B)
     public static function recip<N:Nat>( lhs: Float, rhs: Vecf<N> ): Vecf<N> {
         var res = new Array<Float>();
