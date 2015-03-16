@@ -22,6 +22,7 @@ class Check {
         r.add( new TestInstantiation() );
         r.add( new TestComponentOps() );
         r.add( new TestLengthNormalize() );
+        r.add( new TestDot() );
         r.run();
     }
 }
@@ -367,5 +368,57 @@ class TestLengthNormalize extends haxe.unit.TestCase {
         var n = a.normalize();
         assertTrue( FPU.roughly( n.len(), 1.0 ) );
         assertTrue( FPU.roughly( n.lensq(), 1.0 ) );
+    }
+}
+
+class TestDot extends haxe.unit.TestCase {
+    public function testVector2() {
+        var a = new Vec2f( Math.random(), Math.random() );
+        var b = new Vec2f( Math.random(), Math.random() );
+        var c = a.dot( b );
+        assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y ) );
+        var d = new Vec2f( 0, 1 );
+        var e = new Vec2f( 1, 0 );
+        assertTrue( FPU.roughly( 0, d.dot( e ) ) );
+    }
+
+    public function testVector3() {
+        var a = new Vec3f( Math.random(), Math.random(), Math.random() );
+        var b = new Vec3f( Math.random(), Math.random(), Math.random() );
+        var c = a.dot( b );
+        assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y + a.z * b.z ) );
+        var d = new Vec3f( 0, 1, 0 );
+        var e = new Vec3f( 1, 0, 0 );
+        assertTrue( FPU.roughly( 0, d.dot( e ) ) );
+    }
+
+    public function testVector4() {
+        var a = new Vec4f( Math.random(), Math.random(), Math.random(), Math.random() );
+        var b = new Vec4f( Math.random(), Math.random(), Math.random(), Math.random() );
+        var c = a.dot( b );
+        assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w ) );
+        var d = new Vec4f( 0, 1, 0, 0 );
+        var e = new Vec4f( 1, 0, 1, 0 );
+        assertTrue( FPU.roughly( 0, d.dot( e ) ) );
+    }
+
+    public function testLargeVector() {
+        function genRandomArr( sz : Int ) {
+            var res = [];
+            for ( i in 0...sz ) res.push( Math.random() );
+            return res;
+        }
+
+        var a = new Vecf<Hundred>( genRandomArr( 100 ) );
+        var b = new Vecf<Hundred>( genRandomArr( 100 ) );
+        var c = a.dot( b );
+
+        function innerprod<N>( a: Vecf<N>, b: Vecf<N> ) {
+            var res = 0.0;
+            for ( i in 0...a.length ) res += a[i] * b[i];
+            return res;
+        }
+
+        assertTrue( FPU.roughly( c, innerprod( a, b ) ) );
     }
 }
