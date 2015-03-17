@@ -6,7 +6,7 @@ import gml.vector.Vec2f;
 import gml.vector.Vec3f;
 import gml.vector.Vec4f;
 
-using gml.vector.Vec2f;
+import gml.Angle;
 
 // floating point utils
 class FPU {
@@ -19,15 +19,25 @@ class FPU {
 class Check {
     static function main() {
         var r = new haxe.unit.TestRunner();
-        r.add( new TestInstantiation() );
-        r.add( new TestComponentOps() );
-        r.add( new TestLengthNormalize() );
-        r.add( new TestDot() );
+        r.add( new TestVectorInstantiation() );
+        r.add( new TestVectorComponentOps() );
+        r.add( new TestVectorLengthNormalize() );
+        r.add( new TestVectorDot() );
+        r.add( new TestAngleInstantiation() );
         r.run();
     }
 }
 
-class TestInstantiation extends haxe.unit.TestCase {
+class TestAngleInstantiation extends haxe.unit.TestCase {
+    public function test() {
+        var d : Degree = 45;
+        assertTrue( FPU.roughly( d.toRad(), 0.78539816 ) );
+        var r : Radian = 0.78539816;
+        assertTrue( FPU.roughly( r.toDeg(), 45 ) );
+    }
+}
+
+class TestVectorInstantiation extends haxe.unit.TestCase {
     public function testVector2() {
         var v = new Vec2f( 0, 0 );
         assertTrue( v != null );
@@ -94,7 +104,7 @@ class TestInstantiation extends haxe.unit.TestCase {
 }
 
 typedef Hundred = S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<Zero>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-class TestComponentOps extends haxe.unit.TestCase {
+class TestVectorComponentOps extends haxe.unit.TestCase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var b = new Vec2f( Math.random(), Math.random() );
@@ -335,7 +345,7 @@ class TestComponentOps extends haxe.unit.TestCase {
     }
 }
 
-class TestLengthNormalize extends haxe.unit.TestCase {
+class TestVectorLengthNormalize extends haxe.unit.TestCase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var n = a.normalize();
@@ -371,11 +381,63 @@ class TestLengthNormalize extends haxe.unit.TestCase {
     }
 }
 
-class TestDot extends haxe.unit.TestCase {
+class TestVectorDot extends haxe.unit.TestCase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var b = new Vec2f( Math.random(), Math.random() );
         var c = a.dot( b );
+        assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y ) );
+        var d = new Vec2f( 0, 1 );
+        var e = new Vec2f( 1, 0 );
+        assertTrue( FPU.roughly( 0, d.dot( e ) ) );
+    }
+
+    public function testVector3() {
+        var a = new Vec3f( Math.random(), Math.random(), Math.random() );
+        var b = new Vec3f( Math.random(), Math.random(), Math.random() );
+        var c = a.dot( b );
+        assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y + a.z * b.z ) );
+        var d = new Vec3f( 0, 1, 0 );
+        var e = new Vec3f( 1, 0, 0 );
+        assertTrue( FPU.roughly( 0, d.dot( e ) ) );
+    }
+
+    public function testVector4() {
+        var a = new Vec4f( Math.random(), Math.random(), Math.random(), Math.random() );
+        var b = new Vec4f( Math.random(), Math.random(), Math.random(), Math.random() );
+        var c = a.dot( b );
+        assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w ) );
+        var d = new Vec4f( 0, 1, 0, 0 );
+        var e = new Vec4f( 1, 0, 1, 0 );
+        assertTrue( FPU.roughly( 0, d.dot( e ) ) );
+    }
+
+    public function testLargeVector() {
+        function genRandomArr( sz : Int ) {
+            var res = [];
+            for ( i in 0...sz ) res.push( Math.random() );
+            return res;
+        }
+
+        var a = new Vecf<Hundred>( genRandomArr( 100 ) );
+        var b = new Vecf<Hundred>( genRandomArr( 100 ) );
+        var c = a.dot( b );
+
+        function innerprod<N>( a: Vecf<N>, b: Vecf<N> ) {
+            var res = 0.0;
+            for ( i in 0...a.length ) res += a[i] * b[i];
+            return res;
+        }
+
+        assertTrue( FPU.roughly( c, innerprod( a, b ) ) );
+    }
+}
+
+class TestVectorCross extends haxe.unit.TestCase {
+    public function testVector2() {
+        var a = new Vec2f( Math.random(), Math.random() );
+        var b = new Vec2f( Math.random(), Math.random() );
+        var c = a.cross( b );
         assertTrue( FPU.roughly( c, a.x * b.x + a.y * b.y ) );
         var d = new Vec2f( 0, 1 );
         var e = new Vec2f( 1, 0 );
