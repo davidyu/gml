@@ -10,7 +10,7 @@ import gml.Angle;
 
 // floating point utils
 class FPU {
-    public static function roughly( a: Float, b: Float, e: Float = 0.00000001 ) {
+    public static function roughly( a: Float, b: Float, e: Float = 0.0000000001 ) {
         if ( a == b ) return true;
         else return Math.abs( a - b ) < e;
     }
@@ -23,17 +23,35 @@ class Check {
         r.add( new TestVectorComponentOps() );
         r.add( new TestVectorLengthNormalize() );
         r.add( new TestVectorDot() );
-        r.add( new TestAngleInstantiation() );
+        r.add( new TestAngle() );
         r.run();
     }
 }
 
-class TestAngleInstantiation extends haxe.unit.TestCase {
-    public function test() {
-        var d : Degree = 45;
-        assertTrue( FPU.roughly( d.toRad(), 0.78539816 ) );
-        var r : Radian = 0.78539816;
-        assertTrue( FPU.roughly( r.toDeg(), 45 ) );
+class TestAngle extends haxe.unit.TestCase {
+    public function testConversion() {
+        var d30  : Degree = 30;
+        var d45  : Degree = 45;
+        var d60  : Degree = 60;
+        var d90  : Degree = 90;
+        var d180 : Degree = 180;
+
+        var r30  : Radian = Math.PI / 6;
+        var r45  : Radian = Math.PI / 4;
+        var r60  : Radian = Math.PI / 3;
+        var r90  : Radian = Math.PI / 2;
+        var r180 : Radian = Math.PI;
+
+        assertTrue( FPU.roughly( d30.toRad(), r30 ) );
+        assertTrue( FPU.roughly( r30.toDeg(), d30 ) );
+        assertTrue( FPU.roughly( d45.toRad(), r45 ) );
+        assertTrue( FPU.roughly( r45.toDeg(), d45 ) );
+        assertTrue( FPU.roughly( d60.toRad(), r60 ) );
+        assertTrue( FPU.roughly( r60.toDeg(), d60 ) );
+        assertTrue( FPU.roughly( d90.toRad(), r90 ) );
+        assertTrue( FPU.roughly( r90.toDeg(), d90 ) );
+        assertTrue( FPU.roughly( d180.toRad(), r180 ) );
+        assertTrue( FPU.roughly( r180.toDeg(), d180 ) );
     }
 }
 
