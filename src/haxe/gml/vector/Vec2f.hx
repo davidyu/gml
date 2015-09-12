@@ -26,6 +26,17 @@ abstract Vec2f( Vecf<Two> ) from Vecf<Two> to Vecf<Two> {
         return this.set( i, v );
     }
 
+    public inline function orthogonal( flipY : Bool = false ) : Vec2f {
+        if ( flipY )
+            return new Vec2f( -y, x );
+        else
+            return new Vec2f( y, -x );
+    }
+
+    public inline function reflect( normal: Vec2f ): Vec2f {
+        return this - ( 2 * this.dot( normal ) ) * normal;
+    }
+
     @:op(A + B)
     public static inline function add( lhs: Vec2f, rhs : Vec2f ): Vec2f {
         return lhs.vecf().add( rhs.vecf() );
