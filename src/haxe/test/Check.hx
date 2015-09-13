@@ -55,7 +55,16 @@ class TestAngle extends haxe.unit.TestCase {
     }
 }
 
-class TestVectorInstantiation extends haxe.unit.TestCase {
+class TestVectorBase extends haxe.unit.TestCase {
+    // for testing the dot product implementation
+    private function innerprod<N:Nat>( a: Vecf<N>, b: Vecf<N> ) {
+        var res = 0.0;
+        for ( i in 0...a.length ) res += a[i] * b[i];
+        return res;
+    }
+}
+
+class TestVectorInstantiation extends TestVectorBase {
     public function testVector2() {
         var v = new Vec2f( 0, 0 );
         assertTrue( v != null );
@@ -122,7 +131,7 @@ class TestVectorInstantiation extends haxe.unit.TestCase {
 }
 
 typedef Hundred = S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<S<Zero>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-class TestVectorComponentOps extends haxe.unit.TestCase {
+class TestVectorComponentOps extends TestVectorBase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var b = new Vec2f( Math.random(), Math.random() );
@@ -363,7 +372,7 @@ class TestVectorComponentOps extends haxe.unit.TestCase {
     }
 }
 
-class TestVectorLengthNormalize extends haxe.unit.TestCase {
+class TestVectorLengthNormalize extends TestVectorBase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var n = a.normalize();
@@ -399,7 +408,7 @@ class TestVectorLengthNormalize extends haxe.unit.TestCase {
     }
 }
 
-class TestVectorDot extends haxe.unit.TestCase {
+class TestVectorDot extends TestVectorBase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var b = new Vec2f( Math.random(), Math.random() );
@@ -441,17 +450,11 @@ class TestVectorDot extends haxe.unit.TestCase {
         var b = new Vecf<Hundred>( genRandomArr( 100 ) );
         var c = a.dot( b );
 
-        function innerprod<N>( a: Vecf<N>, b: Vecf<N> ) {
-            var res = 0.0;
-            for ( i in 0...a.length ) res += a[i] * b[i];
-            return res;
-        }
-
         assertTrue( FPU.roughly( c, innerprod( a, b ) ) );
     }
 }
 
-class TestVectorCross extends haxe.unit.TestCase {
+class TestVectorCross extends TestVectorBase {
     public function testVector2() {
         var a = new Vec2f( Math.random(), Math.random() );
         var b = new Vec2f( Math.random(), Math.random() );
@@ -492,12 +495,6 @@ class TestVectorCross extends haxe.unit.TestCase {
         var a = new Vecf<Hundred>( genRandomArr( 100 ) );
         var b = new Vecf<Hundred>( genRandomArr( 100 ) );
         var c = a.dot( b );
-
-        function innerprod<N>( a: Vecf<N>, b: Vecf<N> ) {
-            var res = 0.0;
-            for ( i in 0...a.length ) res += a[i] * b[i];
-            return res;
-        }
 
         assertTrue( FPU.roughly( c, innerprod( a, b ) ) );
     }
