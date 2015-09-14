@@ -1,12 +1,12 @@
 package test;
 
+import gml.Angle;
 import gml.Nat;
+import gml.matrix.Mat4;
 import gml.vector.Vec;
 import gml.vector.Vec2f;
 import gml.vector.Vec3f;
 import gml.vector.Vec4f;
-
-import gml.Angle;
 
 // floating point utils
 class FPU {
@@ -19,11 +19,12 @@ class FPU {
 class Check {
     static function main() {
         var r = new haxe.unit.TestRunner();
+        r.add( new TestAngle() );
         r.add( new TestVectorInstantiation() );
         r.add( new TestVectorComponentOps() );
         r.add( new TestVectorLengthNormalize() );
         r.add( new TestVectorDot() );
-        r.add( new TestAngle() );
+        r.add( new TestMat4() );
         r.run();
     }
 }
@@ -497,5 +498,50 @@ class TestVectorCross extends TestVectorBase {
         var c = a.dot( b );
 
         assertTrue( FPU.roughly( c, innerprod( a, b ) ) );
+    }
+}
+
+class TestMat4 extends haxe.unit.TestCase {
+    public function testAccessors() {
+        var id = new Mat4( 1, 0, 0, 0
+                         , 0, 1, 0, 0
+                         , 0, 0, 1, 0
+                         , 0, 0, 0, 1 );
+
+        assertTrue( id != null );
+
+        assertEquals( id[0]  , 1 );
+        assertEquals( id[1]  , 0 );
+        assertEquals( id[2]  , 0 );
+        assertEquals( id[3]  , 0 );
+        assertEquals( id[4]  , 0 );
+        assertEquals( id[5]  , 1 );
+        assertEquals( id[6]  , 0 );
+        assertEquals( id[7]  , 0 );
+        assertEquals( id[8]  , 0 );
+        assertEquals( id[9]  , 0 );
+        assertEquals( id[10] , 1 );
+        assertEquals( id[11] , 0 );
+        assertEquals( id[12] , 0 );
+        assertEquals( id[13] , 0 );
+        assertEquals( id[14] , 0 );
+        assertEquals( id[15] , 1 );
+
+        assertEquals( id[0]  , id.get( 0, 0 ) );
+        assertEquals( id[1]  , id.get( 0, 1 ) );
+        assertEquals( id[2]  , id.get( 0, 2 ) );
+        assertEquals( id[3]  , id.get( 0, 3 ) );
+        assertEquals( id[4]  , id.get( 1, 0 ) );
+        assertEquals( id[5]  , id.get( 1, 1 ) );
+        assertEquals( id[6]  , id.get( 1, 2 ) );
+        assertEquals( id[7]  , id.get( 1, 3 ) );
+        assertEquals( id[8]  , id.get( 2, 0 ) );
+        assertEquals( id[9]  , id.get( 2, 1 ) );
+        assertEquals( id[10] , id.get( 2, 2 ) );
+        assertEquals( id[11] , id.get( 2, 3 ) );
+        assertEquals( id[12] , id.get( 3, 0 ) );
+        assertEquals( id[13] , id.get( 3, 1 ) );
+        assertEquals( id[14] , id.get( 3, 2 ) );
+        assertEquals( id[15] , id.get( 3, 3 ) );
     }
 }
