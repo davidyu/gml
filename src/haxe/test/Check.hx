@@ -547,11 +547,18 @@ class TestMat4 extends haxe.unit.TestCase {
         assertEquals( id[0]  , id.r00 );
         assertEquals( id[1]  , id.r01 );
         assertEquals( id[2]  , id.r02 );
+        assertEquals( id[3]  , id.tx );
         assertEquals( id[4]  , id.r10 );
         assertEquals( id[5]  , id.r11 );
         assertEquals( id[6]  , id.r12 );
+        assertEquals( id[7]  , id.ty );
         assertEquals( id[8]  , id.r20 );
         assertEquals( id[9]  , id.r21 );
         assertEquals( id[10] , id.r22 );
+        assertEquals( id[11] , id.tz );
+        assertEquals( id[12] , id.m30 );
+        assertEquals( id[13] , id.m31 );
+        assertEquals( id[14] , id.m32 );
+        assertEquals( id[15] , id.m33 );
     }
 }

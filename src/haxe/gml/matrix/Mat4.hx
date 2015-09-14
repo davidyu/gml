@@ -17,6 +17,13 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
     public var r20(get, set): Float;
     public var r21(get, set): Float;
     public var r22(get, set): Float;
+    public var tx(get, set): Float;
+    public var ty(get, set): Float;
+    public var tz(get, set): Float;
+    public var m30(get, set): Float;
+    public var m31(get, set): Float;
+    public var m32(get, set): Float;
+    public var m33(get, set): Float;
 
     @:arrayAccess
     public inline function get_flat( i: Int ): Float {
@@ -108,5 +115,61 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
 
     public function set_r22( r22: Float ) {
         return this.set_flat( 10, r22 );
+    }
+
+    public function get_tx() {
+        return this.get_flat( 3 );
+    }
+
+    public function set_tx( tx: Float ) {
+        return this.set_flat( 3, tx );
+    }
+
+    public function get_ty() {
+        return this.get_flat( 7 );
+    }
+
+    public function set_ty( ty: Float ) {
+        return this.set_flat( 7, ty );
+    }
+
+    public function get_tz() {
+        return this.get_flat( 11 );
+    }
+
+    public function set_tz( tz: Float ) {
+        return this.set_flat( 11, tz );
+    }
+
+    public function get_m30() {
+        return this.get_flat( 12 );
+    }
+
+    public function set_m30( m30: Float ) {
+        return this.set_flat( 12, m30 );
+    }
+
+    public function get_m31() {
+        return this.get_flat( 13 );
+    }
+
+    public function set_m31( m31: Float ) {
+        return this.set_flat( 13, m31 );
+    }
+
+    public function get_m32() {
+        return this.get_flat( 14 );
+    }
+
+    public function set_m32( m32: Float ) {
+        return this.set_flat( 14, m32 );
+    }
+
+    public function get_m33() {
+        return this.get_flat( 15 );
+    }
+
+    public function set_m33( m33: Float ) {
+        return this.set_flat( 15, m33 );
     }
 }
