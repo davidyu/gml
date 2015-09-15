@@ -1,20 +1,10 @@
 // bootstrap on type system for peano arithmetic
-protocol Nat {
-    static func literal() -> Int
-}
+protocol Nat {}
 
-class Zero:Nat {
-    static func literal() -> Int {
-        return 0
-    }
-}
+class Zero:Nat {}
 
 // successor operator
-class S<T:Nat>:Nat {
-    static func literal() -> Int {
-        return 1 + T.literal()
-    }
-}
+class S<T:Nat>:Nat {}
 
 typealias One   = S<Zero>
 typealias Two   = S<One>

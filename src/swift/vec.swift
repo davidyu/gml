@@ -11,24 +11,32 @@ protocol Vector {
 }
 
 // expose me
-struct Vec<T:Nat>: Vector {
-    var data = [Float]( count: T.literal(), repeatedValue: 0.0 )
+struct Vec<N:Nat>: Vector {
+    var data: [Float]
     subscript( index: Int ) -> Float {
         get             { return data[index]     }
         set( newValue ) { data[index] = newValue }
     }
     var lensq: Float {
         var lensq: Float = 0.0
-        for n in 0...T.literal() - 1 {
+        for n in 0...data.count - 1 {
             lensq += data[n] * data[n]
         }
         return lensq
     }
-    init( v: [Float] ) {
-        self.data = Array( data[0...T.literal()] )
-    }
     var length: Float {
         return sqrt( self.lensq )
+    }
+    init( v: [Float] ) {
+        self.data = v
+    }
+    func push( x: Float ) -> Vec<S<N>> {
+        var newdata = data
+        newdata.append( x )
+        return Vec<S<N>>( v: newdata )
+    }
+    var count: Int {
+        return data.count
     }
 }
 
@@ -167,23 +175,24 @@ struct Vec4: Vector {
     }
 }
 
-func dot<T:Nat>( a: Vec<T>, b: Vec<T> ) -> Float {
+func dot<N:Nat>( a: Vec<N>, b: Vec<N> ) -> Float {
     var sum: Float = 0.0
-    for n in 0...T.literal() - 1 {
+    for n in 0...a.count - 1 {
         sum += a[n] * b[n]
     }
     return sum
 }
 
 infix operator + { associativity left precedence 140 }
-func +<T:Nat>( left: Vec<T>, right: Vec<T> ) -> Vec<T> {
-    var values = [Float]( count: T.literal(), repeatedValue: 0.0 )
-    for n in 0...T.literal() - 1 {
+func +<N:Nat>( left: Vec<N>, right: Vec<N> ) -> Vec<N> {
+    var values = [Float]( count: left.count, repeatedValue: 0.0 )
+    for n in 0...left.count - 1 {
         values[n] = left[n] + right[n]
     }
-    return Vec<T>( v: values )
+    return Vec<N>( v: values )
 }
 
+// what?
 func +<T: SpecializedVector>( left: T, right: T ) -> T {
     var values = [Float]( count: left.count, repeatedValue: 0.0 )
     for n in 0...left.count - 1 {
