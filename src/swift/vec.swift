@@ -64,7 +64,7 @@ struct Vec2: Vector, SpecializedVector {
         set( y ) { data[1] = y    }
     }
     init( v: [Float] ) {
-        self.data = [data[0], data[1]]
+        self.data = v
     }
     init( x: Float, y: Float ) {
         self.data = [x,y]
@@ -109,7 +109,7 @@ struct Vec3: Vector, SpecializedVector {
         set( b ) { data[2] = b    }
     }
     init( v: [Float] ) {
-        self.data = Array(data[0...2])
+        self.data = v
     }
     init( x: Float, y: Float, z: Float ) {
         self.data = [x,y,z]
@@ -122,7 +122,7 @@ struct Vec3: Vector, SpecializedVector {
     }
 }
 
-struct Vec4: Vector {
+struct Vec4: Vector, SpecializedVector {
     let count = 4
     var data = [Float]( count: 4, repeatedValue: 0.0 )
     subscript( index: Int ) -> Float {
@@ -162,7 +162,7 @@ struct Vec4: Vector {
         set( a ) { data[3] = a    }
     }
     init( v: [Float] ) {
-        self.data = Array(data[0...3])
+        self.data = v
     }
     init( x: Float, y: Float, z: Float, w: Float ) {
         self.data = [x,y,z,w]
