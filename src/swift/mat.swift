@@ -24,6 +24,64 @@ struct Mat<R:Nat, C:Nat>: Matrix {
     }
 }
 
+struct Mat3: Matrix {
+    let rows = 3
+    let cols = 3
+    var m = [Float]( count: 9, repeatedValue: 0.0 )
+    subscript( row: Int, col: Int ) -> Float {
+        get {
+            return m[ cols * row + col ]
+        }
+
+        set( newValue ) {
+            m[ cols * row + col ] = newValue
+        }
+    }
+    init( m:[Float] ) {
+        self.m = m
+    }
+    var r00: Float {
+        get        { return m[0] }
+        set( r00 ) { m[0] = r00   }
+    }
+    var r01: Float {
+        get        { return m[1] }
+        set( r01 ) { m[1] = r01   }
+    }
+    var tx: Float {
+        get       { return m[2] }
+        set( tx ) { m[2] = tx   }
+    }
+    var r10: Float {
+        get        { return m[3] }
+        set( r10 ) { m[3] = r10   }
+    }
+    var r11: Float {
+        get        { return m[4] }
+        set( r11 ) { m[4] = r11   }
+    }
+    var ty: Float {
+        get       { return m[5] }
+        set( ty ) { m[5] = ty   }
+    }
+    var m20: Float {
+        get        { return m[6] }
+        set( m20 ) { m[3] = m20   }
+    }
+    var m21: Float {
+        get        { return m[7] }
+        set( m21 ) { m[4] = m21   }
+    }
+    var tz: Float {
+        get       { return m[8] }
+        set( tz ) { m[8] = tz   }
+    }
+    var tw: Float {
+        get       { return m[8] }
+        set( tw ) { m[8] = tw   }
+    }
+}
+
 func fromRows<R:Nat, C:Nat>( rows: [Vec<C>] ) -> Mat<R, C> {
     var m: [Float] = []
 
