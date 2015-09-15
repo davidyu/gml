@@ -1,4 +1,5 @@
 protocol Matrix {
+    var count: Int { get }
     var m : [Float] { get set }
     subscript( row: Int, col: Int ) -> Float { get set }
 }
@@ -7,6 +8,7 @@ protocol Matrix {
 struct Mat<R:Nat, C:Nat>: Matrix {
     private var rows: Int
     private var cols: Int
+    let count: Int
     var m: [Float]
     subscript( row: Int, col: Int ) -> Float {
         get {
@@ -20,13 +22,24 @@ struct Mat<R:Nat, C:Nat>: Matrix {
     init( r: Int, c: Int, m: [Float] ) {
         self.rows = r
         self.cols = c
+        self.count = r * c
         self.m = m
     }
 }
 
-struct Mat3: Matrix {
+// specialized matrices know their size by construction,
+// so we don't need it in the initializer
+protocol SpecializedMatrix {
+    var count: Int { get }
+    init( m: [Float] )
+    subscript( i: Int ) -> Float { get set }
+    subscript( row: Int, col: Int ) -> Float { get set }
+}
+
+struct Mat3: Matrix, SpecializedMatrix {
     let rows = 3
     let cols = 3
+    let count = 9
     var m = [Float]( count: 9, repeatedValue: 0.0 )
     subscript( row: Int, col: Int ) -> Float {
         get {
@@ -35,6 +48,15 @@ struct Mat3: Matrix {
 
         set( newValue ) {
             m[ cols * row + col ] = newValue
+        }
+    }
+    subscript( i: Int ) -> Float {
+        get {
+            return m[ i ]
+        }
+
+        set( newValue ) {
+            m[ i ] = newValue
         }
     }
     init( m:[Float] ) {
@@ -125,4 +147,20 @@ func transpose<R:Nat, C:Nat>( mat: Mat<R, C> ) -> Mat<C, R> {
     }
 
     return Mat<C,R>( r: mat.rows, c: mat.cols, m: m )
+}
+
+func +<T: SpecializedMatrix>( left: T, right: T ) -> T {
+    var m = [Float]( count: left.count, repeatedValue: 0.0 )
+    for n in 0...left.count - 1 {
+        m[n] = left[n] + right[n]
+    }
+    return T( m: m )
+}
+
+func -<T: SpecializedMatrix>( left: T, right: T ) -> T {
+    var m = [Float]( count: left.count, repeatedValue: 0.0 )
+    for n in 0...left.count - 1 {
+        m[n] = left[n] - right[n]
+    }
+    return T( m: m )
 }
