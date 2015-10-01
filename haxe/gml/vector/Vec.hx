@@ -125,7 +125,7 @@ abstract Vecf<N:Nat>( Array<Float> ) {
         return Math.sqrt( lensq() );
     }
 
-    public function normalize( ): Vecf<N> {
+    public function normalize(): Vecf<N> {
         var lhs = new Vecf<N>( this );
         return sdiv( lhs, lhs.len() );
     }
