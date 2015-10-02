@@ -1,7 +1,7 @@
 package gml.matrix;
 
 // generic matrix
-class Matrix<T> {
+class Matrix<T> implements ArrayAccess<T> {
     var rows: Int;
     var cols: Int;
     var data: Array<T>;

@@ -3,9 +3,10 @@ package gml.matrix;
 import gml.Nat;
 import gml.matrix.Matrix;
 
+@:forward(get, set)
 abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
     public function new( r00, r01, r02, tx, r10, r11, r12, ty, r20, r21, r22, tz, m30, m31, m32, m33 ) {
-        this = new Matrix<Float>( [ r00, r01, r02, tx, r10, r11, r12, ty, r20, r21, r22, tz, m30, m31, m32, m33 ] );
+        this = new Matrix<Float>( 4, 4, [ r00, r01, r02, tx, r10, r11, r12, ty, r20, r21, r22, tz, m30, m31, m32, m33 ] );
     }
 
     public var r00(get, set): Float;
@@ -27,149 +28,139 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
 
     @:arrayAccess
     public inline function get_flat( i: Int ): Float {
-        return this.get_flat( i );
+        return this[i];
     }
 
     @:arrayAccess
-    public inline function set_flat( i: Int, v: Float ): Float {
-        return this.set_flat( i, v );
-    }
-
-    public function get( r: Int, c: Int ): Float {
-        return this[ r * 4 + c ];
-    }
-
-    public function set( r: Int, c: Int, v: Float ): Float {
-        var index = r * 4 + c;
-        this[ index ] = v;
-        return this[ index ];
+    public inline function set_flat( i: Int, v: Float ) {
+        this[i] = v;
     }
 
     public function get_r00() {
-        return this.get_flat( 0 );
+        return this[0];
     }
 
     public function set_r00( r00: Float ) {
-        return this.set_flat( 0, r00 );
+        return this[0] = r00;
     }
 
     public function get_r01() {
-        return this.get_flat( 1 );
+        return this[1];
     }
 
     public function set_r01( r01: Float ) {
-        return this.set_flat( 1, r01 );
+        return this[1] = r01;
     }
 
     public function get_r02() {
-        return this.get_flat( 2 );
+        return this[2];
     }
 
     public function set_r02( r02: Float ) {
-        return this.set_flat( 2, r02 );
+        return this[2] = r02;
     }
 
     public function get_r10() {
-        return this.get_flat( 4 );
+        return this[4];
     }
 
     public function set_r10( r10: Float ) {
-        return this.set_flat( 4, r10 );
+        return this[4] = r10;
     }
 
     public function get_r11() {
-        return this.get_flat( 5 );
+        return this[5];
     }
 
     public function set_r11( r11: Float ) {
-        return this.set_flat( 5, r11 );
+        return this[5] = r11;
     }
 
     public function get_r12() {
-        return this.get_flat( 6 );
+        return this[6];
     }
 
     public function set_r12( r12: Float ) {
-        return this.set_flat( 6, r12 );
+        return this[6] = r12;
     }
 
     public function get_r20() {
-        return this.get_flat( 8 );
+        return this[8];
     }
 
     public function set_r20( r20: Float ) {
-        return this.set_flat( 8, r20 );
+        return this[8] = r20;
     }
 
     public function get_r21() {
-        return this.get_flat( 9 );
+        return this[9];
     }
 
     public function set_r21( r21: Float ) {
-        return this.set_flat( 9, r21 );
+        return this[9] = r21;
     }
 
     public function get_r22() {
-        return this.get_flat( 10 );
+        return this[10];
     }
 
     public function set_r22( r22: Float ) {
-        return this.set_flat( 10, r22 );
+        return this[1] = r22;
     }
 
     public function get_tx() {
-        return this.get_flat( 3 );
+        return this[3];
     }
 
     public function set_tx( tx: Float ) {
-        return this.set_flat( 3, tx );
+        return this[3] = tx;
     }
 
     public function get_ty() {
-        return this.get_flat( 7 );
+        return this[7];
     }
 
     public function set_ty( ty: Float ) {
-        return this.set_flat( 7, ty );
+        return this[7] = ty;
     }
 
     public function get_tz() {
-        return this.get_flat( 11 );
+        return this[11];
     }
 
     public function set_tz( tz: Float ) {
-        return this.set_flat( 11, tz );
+        return this[1] = tz;
     }
 
     public function get_m30() {
-        return this.get_flat( 12 );
+        return this[12];
     }
 
     public function set_m30( m30: Float ) {
-        return this.set_flat( 12, m30 );
+        return this[1] = m30;
     }
 
     public function get_m31() {
-        return this.get_flat( 13 );
+        return this[13];
     }
 
     public function set_m31( m31: Float ) {
-        return this.set_flat( 13, m31 );
+        return this[1] = m31;
     }
 
     public function get_m32() {
-        return this.get_flat( 14 );
+        return this[14];
     }
 
     public function set_m32( m32: Float ) {
-        return this.set_flat( 14, m32 );
+        return this[1] = m32;
     }
 
     public function get_m33() {
-        return this.get_flat( 15 );
+        return this[15];
     }
 
-    public function set_m33( m33: Float ) {
-        return this.set_flat( 15, m33 );
+    public function set_m33( m33 : Float ) {
+        return this[15] = m33;
     }
 }
