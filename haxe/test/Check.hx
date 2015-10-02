@@ -2,6 +2,7 @@ package test;
 
 import gml.Angle;
 import gml.Nat;
+import gml.matrix.Mat2;
 import gml.matrix.Mat3;
 import gml.matrix.Mat4;
 import gml.vector.Vec;
