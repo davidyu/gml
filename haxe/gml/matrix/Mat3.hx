@@ -1,6 +1,5 @@
 package gml.matrix;
 
-import gml.Nat;
 import gml.matrix.Matrix;
 
 @:forward(get, set)
