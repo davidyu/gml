@@ -27,139 +27,152 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
 
     @:arrayAccess
     public inline function get_flat( i: Int ): Float {
-        return this[i];
+        return this.get_flat(i);
     }
 
     @:arrayAccess
     public inline function set_flat( i: Int, v: Float ) {
-        this[i] = v;
+        this.set_flat( i, v );
     }
 
     public function get_r00() {
-        return this[0];
+        return this.get( 0, 0 );
     }
 
-    public function set_r00( r00: Float ) {
-        return this[0] = r00;
+    public function set_r00( r00: Float ): Float {
+        return this.set( 0, 0, r00 );
     }
 
     public function get_r01() {
-        return this[1];
+        return this.get( 0, 1 );
     }
 
     public function set_r01( r01: Float ) {
-        return this[1] = r01;
+        return this.set( 0, 1, r01 );
     }
 
     public function get_r02() {
-        return this[2];
+        return this.get( 0, 2 );
     }
 
     public function set_r02( r02: Float ) {
-        return this[2] = r02;
+        return this.set( 0, 2, r02 );
     }
 
     public function get_r10() {
-        return this[4];
+        return this.get( 1, 0 );
     }
 
     public function set_r10( r10: Float ) {
-        return this[4] = r10;
+        return this.set( 1, 0, r10 );
     }
 
     public function get_r11() {
-        return this[5];
+        return this.get( 1, 1 );
     }
 
     public function set_r11( r11: Float ) {
-        return this[5] = r11;
+        return this.set( 1, 1, r11 );
     }
 
     public function get_r12() {
-        return this[6];
+        return this.get( 1, 2 );
     }
 
     public function set_r12( r12: Float ) {
-        return this[6] = r12;
+        return this.set( 1, 2, r12 );
     }
 
     public function get_r20() {
-        return this[8];
+        return this.get( 2, 0 );
     }
 
     public function set_r20( r20: Float ) {
-        return this[8] = r20;
+        return this.set( 2, 0, r20 );
     }
 
     public function get_r21() {
-        return this[9];
+        return this.get( 2, 1 );
     }
 
     public function set_r21( r21: Float ) {
-        return this[9] = r21;
+        return this.set( 2, 1, r21 );
     }
 
     public function get_r22() {
-        return this[10];
+        return this.get( 2, 2 );
     }
 
     public function set_r22( r22: Float ) {
-        return this[1] = r22;
+        return this.set( 2, 2, r22 );
     }
 
     public function get_tx() {
-        return this[3];
+        return this.get( 0, 3 );
     }
 
     public function set_tx( tx: Float ) {
-        return this[3] = tx;
+        return this.set( 0, 3, tx );
     }
 
     public function get_ty() {
-        return this[7];
+        return this.get( 1, 3 );
     }
 
     public function set_ty( ty: Float ) {
-        return this[7] = ty;
+        return this.set( 1, 3, ty );
     }
 
     public function get_tz() {
-        return this[11];
+        return this.get( 2, 3 );
     }
 
     public function set_tz( tz: Float ) {
-        return this[1] = tz;
+        return this.set( 2, 3, tz );
     }
 
     public function get_m30() {
-        return this[12];
+        return this.get( 3, 0 );
     }
 
     public function set_m30( m30: Float ) {
-        return this[1] = m30;
+        return this.set( 3, 0, m30 );
     }
 
     public function get_m31() {
-        return this[13];
+        return this.get( 3, 1 );
     }
 
     public function set_m31( m31: Float ) {
-        return this[1] = m31;
+        return this.set( 3, 1, m31 );
     }
 
     public function get_m32() {
-        return this[14];
+        return this.get( 3, 2 );
     }
 
     public function set_m32( m32: Float ) {
-        return this[1] = m32;
+        return this.set( 3, 2, m32 );
     }
 
     public function get_m33() {
-        return this[15];
+        return this.get( 3, 3 );
     }
 
     public function set_m33( m33 : Float ) {
-        return this[15] = m33;
+        return this.set( 3, 3, m33 );
     }
+
+    @:op(A + B)
+    public static inline function add( lhs: Mat4, rhs : Mat4 ): Mat4 {
+        var c = new Array<Float>();
+        for ( i in 0...16 ) {
+            c.push( lhs[i] + rhs[i] );
+        }
+
+        return new Mat4( c[0] , c[1] , c[2] , c[3]
+                       , c[4] , c[5] , c[6] , c[7]
+                       , c[8] , c[9] , c[10], c[11]
+                       , c[12], c[13], c[14], c[15] );
+    } 
 }

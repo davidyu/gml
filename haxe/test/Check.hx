@@ -563,4 +563,22 @@ class TestMat4 extends haxe.unit.TestCase {
         assertEquals( id[14] , id.m32 );
         assertEquals( id[15] , id.m33 );
     }
+
+    public function testAddition() {
+        var a = new Mat4( 1 , 2 , 3 , 4
+                        , 5 , 6 , 7 , 8
+                        , 9 , 10, 11, 12
+                        , 13, 14, 15, 16 );
+
+        var b = new Mat4( 32, 31, 30, 29
+                        , 28, 27, 26, 25
+                        , 24, 23, 22, 21
+                        , 20, 19, 18, 17 );
+
+        var c = a + b;
+
+        for ( i in 0...16 ) {
+            assertEquals( c[i], a[i] + b[i] );
+        }
+    }
 }

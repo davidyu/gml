@@ -22,7 +22,9 @@ class Matrix<T> implements ArrayAccess<T> {
 
     public function set( r: Int, c: Int, v: T ) {
         if ( r < this.rows && c < this.cols ) {
-            this.data[ r * this.cols + c ] = v;
+            return this.data[ r * this.cols + c ] = v;
+        } else {
+            throw "given parameters to matrix accessor is out of bounds";
         }
     }
 
