@@ -163,6 +163,13 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
         return this.set( 3, 3, m33 );
     }
 
+    private static inline function makeMat4( ar: Array<Float> ): Mat4 {
+        return new Mat4( ar[0] , ar[1] , ar[2] , ar[3]
+                       , ar[4] , ar[5] , ar[6] , ar[7]
+                       , ar[8] , ar[9] , ar[10], ar[11]
+                       , ar[12], ar[13], ar[14], ar[15] );
+    }
+
     @:op(A + B)
     public static inline function add( lhs: Mat4, rhs : Mat4 ): Mat4 {
         var c = new Array<Float>();
@@ -170,9 +177,16 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
             c.push( lhs[i] + rhs[i] );
         }
 
-        return new Mat4( c[0] , c[1] , c[2] , c[3]
-                       , c[4] , c[5] , c[6] , c[7]
-                       , c[8] , c[9] , c[10], c[11]
-                       , c[12], c[13], c[14], c[15] );
-    } 
+        return makeMat4( c );
+    }
+
+    @:op(A - B)
+    public static inline function sub( lhs: Mat4, rhs : Mat4 ): Mat4 {
+        var c = new Array<Float>();
+        for ( i in 0...16 ) {
+            c.push( lhs[i] - rhs[i] );
+        }
+
+        return makeMat4( c );
+    }
 }
