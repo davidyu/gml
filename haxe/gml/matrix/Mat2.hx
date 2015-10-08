@@ -15,43 +15,68 @@ abstract Mat2( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
 
     @:arrayAccess
     public inline function get_flat( i: Int ): Float {
-        return this[i];
+        return this.get_flat( i );
     }
 
     @:arrayAccess
     public inline function set_flat( i: Int, v: Float ) {
-        this[i] = v;
+        this.set_flat( i, v );
     }
 
     public function get_r00() {
-        return this[0];
+        return this.get( 0, 0 );
     }
 
     public function set_r00( r00: Float ) {
-        return this[0] = r00;
+        return this.set( 0, 0, r00 );
     }
 
     public function get_r01() {
-        return this[1];
+        return this.get( 0, 1 );
     }
 
     public function set_r01( r01: Float ) {
-        return this[1] = r01;
+        return this.set( 0, 1, r01 );
     }
 
     public function get_r10() {
-        return this[2];
+        return this.get( 1, 0 );
     }
 
     public function set_r10( r10: Float ) {
-        return this[2] = r10;
+        return this.set( 1, 0, r10 );
     }
 
     public function get_r11() {
-        return this[3];
+        return this.get( 1, 1 );
     }
 
     public function set_r11( r11: Float ) {
-        return this[3] = r11;
+        return this.set( 1, 1, r11 );
+    }
+
+    private static inline function makeMat2( ar: Array<Float> ): Mat2 {
+        return new Mat2( ar[0] , ar[1]
+                       , ar[2] , ar[3] );
+    }
+
+    @:op(A + B)
+    public static inline function add( lhs: Mat2, rhs : Mat2 ): Mat2 {
+        var c = new Array<Float>();
+        for ( i in 0...4 ) {
+            c.push( lhs[i] + rhs[i] );
+        }
+
+        return makeMat2( c );
+    }
+
+    @:op(A - B)
+    public static inline function sub( lhs: Mat2, rhs : Mat2 ): Mat2 {
+        var c = new Array<Float>();
+        for ( i in 0...4 ) {
+            c.push( lhs[i] - rhs[i] );
+        }
+
+        return makeMat2( c );
     }
 }

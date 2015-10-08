@@ -26,7 +26,7 @@ class Check {
         r.add( new TestVectorComponentOps() );
         r.add( new TestVectorLengthNormalize() );
         r.add( new TestVectorDot() );
-        r.add( new TestMat4() );
+        r.add( new TestMatrix() );
         r.run();
     }
 }
@@ -503,7 +503,7 @@ class TestVectorCross extends TestVectorBase {
     }
 }
 
-class TestMat4 extends haxe.unit.TestCase {
+class TestMatrix extends haxe.unit.TestCase {
     public function testAccessors() {
         var id = new Mat4( 1, 0, 0, 0
                          , 0, 1, 0, 0
@@ -600,6 +600,21 @@ class TestMat4 extends haxe.unit.TestCase {
                 assertEquals( c[i], a[i] + b[i] );
             }
         }
+
+        // Mat2 basic sum test
+        {
+            var a = new Mat2( 1 , 2
+                            , 3 , 4 );
+
+            var b = new Mat2( 20, 19
+                            , 18, 17 );
+
+            var c = a + b;
+
+            for ( i in 0...4 ) {
+                assertEquals( c[i], a[i] + b[i] );
+            }
+        }
     }
 
     public function testSubtraction() {
@@ -635,6 +650,21 @@ class TestMat4 extends haxe.unit.TestCase {
             var c = a - b;
 
             for ( i in 0...9 ) {
+                assertEquals( c[i], a[i] - b[i] );
+            }
+        }
+
+        // Mat2 basic subtract test
+        {
+            var a = new Mat2( 1 , 2
+                            , 3 , 4 );
+
+            var b = new Mat2( 20, 19
+                            , 18, 17 );
+
+            var c = a - b;
+
+            for ( i in 0...4 ) {
                 assertEquals( c[i], a[i] - b[i] );
             }
         }
