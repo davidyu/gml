@@ -565,38 +565,78 @@ class TestMat4 extends haxe.unit.TestCase {
     }
 
     public function testAddition() {
-        var a = new Mat4( 1 , 2 , 3 , 4
-                        , 5 , 6 , 7 , 8
-                        , 9 , 10, 11, 12
-                        , 13, 14, 15, 16 );
+        // Mat4 basic sum test
+        {
+            var a = new Mat4( 1 , 2 , 3 , 4
+                            , 5 , 6 , 7 , 8
+                            , 9 , 10, 11, 12
+                            , 13, 14, 15, 16 );
 
-        var b = new Mat4( 32, 31, 30, 29
-                        , 28, 27, 26, 25
-                        , 24, 23, 22, 21
-                        , 20, 19, 18, 17 );
+            var b = new Mat4( 32, 31, 30, 29
+                            , 28, 27, 26, 25
+                            , 24, 23, 22, 21
+                            , 20, 19, 18, 17 );
 
-        var c = a + b;
+            var c = a + b;
 
-        for ( i in 0...16 ) {
-            assertEquals( c[i], a[i] + b[i] );
+            for ( i in 0...16 ) {
+                assertEquals( c[i], a[i] + b[i] );
+            }
+        }
+
+        // Mat3 basic sum test
+        {
+            var a = new Mat3( 1 , 2 , 3
+                            , 4 , 5 , 6
+                            , 7 , 8 , 9 );
+
+            var b = new Mat3( 25, 24, 23
+                            , 22, 21, 20
+                            , 19, 18, 17 );
+
+            var c = a + b;
+
+            for ( i in 0...9 ) {
+                assertEquals( c[i], a[i] + b[i] );
+            }
         }
     }
 
     public function testSubtraction() {
-        var a = new Mat4( 1 , 2 , 3 , 4
-                        , 5 , 6 , 7 , 8
-                        , 9 , 10, 11, 12
-                        , 13, 14, 15, 16 );
+        // Mat4 basic subtract test
+        {
+            var a = new Mat4( 1 , 2 , 3 , 4
+                            , 5 , 6 , 7 , 8
+                            , 9 , 10, 11, 12
+                            , 13, 14, 15, 16 );
 
-        var b = new Mat4( 32, 31, 30, 29
-                        , 28, 27, 26, 25
-                        , 24, 23, 22, 21
-                        , 20, 19, 18, 17 );
+            var b = new Mat4( 32, 31, 30, 29
+                            , 28, 27, 26, 25
+                            , 24, 23, 22, 21
+                            , 20, 19, 18, 17 );
 
-        var c = a - b;
+            var c = a - b;
 
-        for ( i in 0...16 ) {
-            assertEquals( c[i], a[i] - b[i] );
+            for ( i in 0...16 ) {
+                assertEquals( c[i], a[i] - b[i] );
+            }
+        }
+
+        // Mat3 basic subtract test
+        {
+            var a = new Mat3( 1 , 2 , 3
+                            , 4 , 5 , 6
+                            , 7 , 8 , 9 );
+
+            var b = new Mat3( 25, 24, 23
+                            , 22, 21, 20
+                            , 19, 18, 17 );
+
+            var c = a - b;
+
+            for ( i in 0...9 ) {
+                assertEquals( c[i], a[i] - b[i] );
+            }
         }
     }
 }
