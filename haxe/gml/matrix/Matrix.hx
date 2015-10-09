@@ -13,22 +13,15 @@ class BaseMatrix<T> {
     }
 
     public function get( r: Int, c: Int ): T {
-        if ( r < this.rows && c < this.cols ) {
-            return this.data[ r * this.cols + c ];
-        } else {
-            throw "given parameters to matrix accessor is out of bounds";
-        }
+        return this.data[ r * this.cols + c ];
     }
 
     public function set( r: Int, c: Int, v: T ) {
-        if ( r < this.rows && c < this.cols ) {
-            return this.data[ r * this.cols + c ] = v;
-        } else {
-            throw "given parameters to matrix accessor is out of bounds";
-        }
+        return this.data[ r * this.cols + c ] = v;
     }
 }
 
+// warning: all operators have no bounds checks; assumes lhs and rhs are the correct size
 // generic matrix, with some useful accessors (array accessors, overloaded operations for Matrix<Floats>)
 @:forward(get, set, rows, cols)
 abstract Matrix<T>( BaseMatrix<T> ) from BaseMatrix<T> to BaseMatrix<T> {
@@ -38,27 +31,19 @@ abstract Matrix<T>( BaseMatrix<T> ) from BaseMatrix<T> to BaseMatrix<T> {
 
     @:arrayAccess
     public function get_flat( i: Int ): T {
-        if ( i < this.rows * this.cols ) {
-            return this.data[i];
-        } else {
-            throw "given flat index to matrix accessor is out of bounds";
-        }
+        return this.data[i];
     }
 
     @:arrayAccess
     public function set_flat( i: Int, v: T ) {
-        if ( i < this.rows * this.cols ) {
-            this.data[i] = v;
-        }
+        this.data[i] = v;
     }
 
     @:op(A + B)
     public static inline function add( lhs: Matrix<Float>, rhs : Matrix<Float> ): Matrix<Float> {
         var c = new Array<Float>();
-        if ( lhs.rows == rhs.rows && lhs.cols == rhs.cols ) {
-            for ( i in 0...lhs.rows * lhs.cols ) {
-                c.push( lhs.get_flat( i ) + rhs.get_flat( i ) );
-            }
+        for ( i in 0...lhs.rows * lhs.cols ) {
+            c.push( lhs.get_flat( i ) + rhs.get_flat( i ) );
         }
 
         return new BaseMatrix<Float>( lhs.cols, rhs.rows, c );
@@ -67,12 +52,25 @@ abstract Matrix<T>( BaseMatrix<T> ) from BaseMatrix<T> to BaseMatrix<T> {
     @:op(A - B)
     public static inline function sub( lhs: Matrix<Float>, rhs : Matrix<Float> ): Matrix<Float> {
         var c = new Array<Float>();
-        if ( lhs.rows == rhs.rows && lhs.cols == rhs.cols ) {
-            for ( i in 0...lhs.rows * lhs.cols ) {
-                c.push( lhs.get_flat( i ) - rhs.get_flat( i ) );
-            }
+        for ( i in 0...lhs.rows * lhs.cols ) {
+            c.push( lhs.get_flat( i ) - rhs.get_flat( i ) );
         }
 
         return new BaseMatrix<Float>( lhs.cols, rhs.rows, c );
+    }
+
+    @:op(A * B)
+    public static inline function matmul( lhs: Matrix<Float>, rhs: Matrix<Float> ): Matrix<Float> {
+        var c = new Array<Float>();
+        for ( i in 0...lhs.rows ) {
+            for ( k in 0...rhs.cols ) {
+                var sum = 0.0;
+                for ( j in 0...rhs.rows ) {
+                    sum += lhs.get( i, j ) * rhs.get( j, k );
+                }
+                c.push( sum );
+            }
+        }
+        return new BaseMatrix<Float>( rhs.cols, lhs.rows, c );
     }
 }
