@@ -1,5 +1,7 @@
 package gml.matrix;
 
+import gml.vector.Vec;
+
 // warning: all operators and accessors have no bounds checks; assumes all parameters are the correct size
 // this is done for performance reasons
 
@@ -75,5 +77,31 @@ abstract Matrix<T>( BaseMatrix<T> ) from BaseMatrix<T> to BaseMatrix<T> {
             }
         }
         return new BaseMatrix<Float>( rhs.cols, lhs.rows, c );
+    }
+
+    @:op(A * B)
+    public static inline function matvec<N:Nat>( lhs: Matrix<Float>, rhs: Vecf<N> ): Vecf<N> {
+        var c = new Array<Float>();
+        for ( j in 0...lhs.rows ) {
+            var sum = 0.0;
+            for ( i in 0...rhs.length ) {
+                sum += lhs.get( i, j ) * rhs[i];
+            }
+            c.push( sum );
+        }
+        return new Vecf<N>( c );
+    }
+
+    @:op(A * B)
+    public static inline function vecmat<N:Nat>( lhs: Vecf<N>, rhs: Matrix<Float> ): Vecf<N> {
+        var c = new Array<Float>();
+        for ( i in 0...rhs.cols ) {
+            var sum = 0.0;
+            for ( j in 0...lhs.length ) {
+                sum += lhs[j] * rhs.get( i, j );
+            }
+            c.push( sum );
+        }
+        return new Vecf<N>( c );
     }
 }
