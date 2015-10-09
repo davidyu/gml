@@ -129,11 +129,11 @@ abstract Mat3( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
     @:op(A * B)
     public static inline function matmul( lhs: Mat3, rhs: Mat3 ): Mat3 {
         var c = new Array<Float>();
-        for ( i in 0...3 ) {
+        for ( j in 0...3 ) {
             for ( k in 0...3 ) {
                 var sum = 0.0;
-                for ( j in 0...3 ) {
-                    sum += lhs.get( i, j ) * rhs.get( j, k );
+                for ( i in 0...3 ) {
+                    sum += lhs.get( i, j ) * rhs.get( k, i );
                 }
                 c.push( sum );
             }

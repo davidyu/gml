@@ -67,11 +67,11 @@ abstract Matrix<T>( BaseMatrix<T> ) from BaseMatrix<T> to BaseMatrix<T> {
     @:op(A * B)
     public static inline function matmul( lhs: Matrix<Float>, rhs: Matrix<Float> ): Matrix<Float> {
         var c = new Array<Float>();
-        for ( i in 0...lhs.rows ) {
+        for ( j in 0...lhs.rows ) {
             for ( k in 0...rhs.cols ) {
                 var sum = 0.0;
-                for ( j in 0...rhs.rows ) {
-                    sum += lhs.get( i, j ) * rhs.get( j, k );
+                for ( i in 0...rhs.rows ) {
+                    sum += lhs.get( i, j ) * rhs.get( k, i );
                 }
                 c.push( sum );
             }

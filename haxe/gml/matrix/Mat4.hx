@@ -193,11 +193,11 @@ abstract Mat4( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
     @:op(A * B)
     public static inline function matmul( lhs: Mat4, rhs: Mat4 ): Mat4 {
         var c = new Array<Float>();
-        for ( i in 0...4 ) {
+        for ( j in 0...4 ) {
             for ( k in 0...4 ) {
                 var sum = 0.0;
-                for ( j in 0...4 ) {
-                    sum += lhs.get( i, j ) * rhs.get( j, k );
+                for ( i in 0...4 ) {
+                    sum += lhs.get( i, j ) * rhs.get( k, i );
                 }
                 c.push( sum );
             }
