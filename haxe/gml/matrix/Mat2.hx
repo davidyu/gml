@@ -1,6 +1,7 @@
 package gml.matrix;
 
 import gml.matrix.Matrix;
+import gml.vector.Vec2f;
 
 @:forward(get, set)
 abstract Mat2( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
@@ -93,5 +94,31 @@ abstract Mat2( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
             }
         }
         return makeMat2( c );
+    }
+
+    @:op(A * B)
+    public static inline function matvec( lhs: Mat2, rhs: Vec2f ): Vec2f {
+        var c = new Array<Float>();
+        for ( j in 0...2 ) {
+            var sum = 0.0;
+            for ( i in 0...2 ) {
+                sum += lhs.get( i, j ) * rhs[i];
+            }
+            c.push( sum );
+        }
+        return new Vec2f( c[0], c[1] );
+    }
+
+    @:op(A * B)
+    public static inline function vecmat( lhs: Vec2f, rhs: Mat2 ): Vec2f {
+        var c = new Array<Float>();
+        for ( i in 0...2 ) {
+            var sum = 0.0;
+            for ( j in 0...2 ) {
+                sum += lhs[j] * rhs.get( i, j );
+            }
+            c.push( sum );
+        }
+        return new Vec2f( c[0], c[1] );
     }
 }
