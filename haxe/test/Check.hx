@@ -2,6 +2,7 @@ package test;
 
 import gml.Angle;
 import gml.Nat;
+import gml.matrix.Matrix;
 import gml.matrix.Mat2;
 import gml.matrix.Mat3;
 import gml.matrix.Mat4;
@@ -666,6 +667,23 @@ class TestMatrix extends haxe.unit.TestCase {
 
             for ( i in 0...4 ) {
                 assertEquals( c[i], a[i] - b[i] );
+            }
+        }
+
+        // Generic matrix basic subtract test
+        for ( rows in 5...20 ) {
+            for ( cols in 5...20 ) {
+                var a_arr = [ for ( i in 0...rows * cols ) Math.random() ];
+                var a: Matrix<Float> = new Matrix<Float>( cols, rows, a_arr );
+
+                var b_arr = [ for ( i in 0...rows * cols ) Math.random() ];
+                var b: Matrix<Float> = new Matrix<Float>( cols, rows, b_arr );
+
+                var c = a - b;
+
+                for ( i in 0...rows * cols ) {
+                    assertTrue( FPU.roughly( c[i], a[i] - b[i] ) );
+                }
             }
         }
     }
