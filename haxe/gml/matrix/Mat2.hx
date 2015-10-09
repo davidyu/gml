@@ -79,4 +79,19 @@ abstract Mat2( Matrix<Float> ) from Matrix<Float> to Matrix<Float> {
 
         return makeMat2( c );
     }
+
+    @:op(A * B)
+    public static inline function matmul( lhs: Mat2, rhs: Mat2 ): Mat2 {
+        var c = new Array<Float>();
+        for ( i in 0...2 ) {
+            for ( k in 0...2 ) {
+                var sum = 0.0;
+                for ( j in 0...2 ) {
+                    sum += lhs.get( i, j ) * rhs.get( j, k );
+                }
+                c.push( sum );
+            }
+        }
+        return makeMat2( c );
+    }
 }

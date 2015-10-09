@@ -1,6 +1,10 @@
 package gml.matrix;
 
+// warning: all operators and accessors have no bounds checks; assumes all parameters are the correct size
+// this is done for performance reasons
+
 // generic base matrix -- we need this to store rows and cols
+// in general, we external users don't need to use this class
 class BaseMatrix<T> {
     public var rows: Int;
     public var cols: Int;
@@ -21,7 +25,6 @@ class BaseMatrix<T> {
     }
 }
 
-// warning: all operators have no bounds checks; assumes lhs and rhs are the correct size
 // generic matrix, with some useful accessors (array accessors, overloaded operations for Matrix<Floats>)
 @:forward(get, set, rows, cols)
 abstract Matrix<T>( BaseMatrix<T> ) from BaseMatrix<T> to BaseMatrix<T> {
