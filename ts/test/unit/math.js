@@ -1,14 +1,15 @@
-var customMatchers = {
-  matrixToBeCloseTo: function( util, customEqualityTesters ) {
-    return {
-      compare: function( actual, expected ) {
-        var result = {};
-        result.pass = util.toBeCloseTo( actual, expected, customEqualityTesters );
-        if ( !result.pass ) {
-          result.message = "Expected " + actual.toString + "\nto be close to " + expected.toString;
+var customEqualityTesters = {
+  matrixEquality: function( a, b ) {
+    var e = 1e-6;
+    if ( a instanceof gml.Matrix && b instanceof gml.Matrix ) {
+      if ( a.rows != b.rows || a.cols != b.cols ) return false;
+      for ( var i = 0; i < a.rows; i++ ) {
+        for ( var j = 0; j < a.cols; j++ ) {
+          if ( Math.abs( a.get( i, j ) - b.get( i, j ) ) >= e ) return false;
         }
       }
-    };
+      return true;
+    }
   }
 }
 
@@ -25,20 +26,8 @@ describe( "vector tests", function() {
 } );
 
 describe( "mat4 tests", function() {
-  var matrixEquality = function( a, b ) {
-    var e = 1e-6;
-    if ( a instanceof gml.Matrix && b instanceof gml.Matrix ) {
-      for ( var i = 0; i < a.rows; i++ ) {
-        for ( var j = 0; j < a.cols; j++ ) {
-          if ( Math.abs( a.get( 0, 0 ) - b.get( 0, 0 ) ) >= e ) return false;
-        }
-      }
-      return true;
-    }
-  }
-
   beforeEach( function() {
-    jasmine.addCustomEqualityTester( matrixEquality );
+    jasmine.addCustomEqualityTester( customEqualityTesters.matrixEquality );
   } );
 
   it( "tests mat4 getters", function() {

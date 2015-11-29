@@ -3,6 +3,7 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
     files: [
       'unit/math.js',
+      { pattern: '../gml.js', included: true },
     ],
 
     autoWatch: true,
