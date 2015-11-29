@@ -5,6 +5,7 @@ SRC=src
 TEST=test
 DIST=dist
 DIST_TEST=$(DIST)/$(TEST)
+DOC=../doc/ts
 
 lib: folders
 	pushd $(SRC); cp -r tsconfigs/lib.json tsconfig.json; tsc; popd
@@ -19,3 +20,6 @@ test: lib
 	pushd $(SRC);
 	cp -rf $(TEST)/* $(DIST_TEST)/
 	@( pushd $(DIST_TEST) && npm install && popd ) > /dev/null
+
+doc:
+	typedoc --readme none --mode file --target ES5 --out $(DOC) src 
