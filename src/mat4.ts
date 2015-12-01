@@ -3,7 +3,7 @@ module gml {
 
     constructor( args: Float32Array );
     constructor( args: number[] );
-    constructor( r00, r01, r02, tx, r10, r11, r12, ty, r20, r21, r22, tz, m30, m31, m32, m33 );
+    constructor( r00: number, r01: number, r02: number, tx: number, r10: number, r11: number, r12: number, ty: number, r20: number, r21: number, r22: number, tz: number, m30: number, m31: number, m32: number, m33: number );
 
     constructor( ...args: any[] ) {
       if ( args.length === 1 ) {
@@ -149,7 +149,7 @@ module gml {
       this.set( 3, 3, v );
     }
 
-    public row( r ): Vec4 {
+    public row( r: number ): Vec4 {
       var row = [];
       for ( var i = 0; i < 4; i++ ) {
         row.push( this.get( r, i ) );
@@ -157,7 +157,7 @@ module gml {
       return new Vec4( row );
     }
 
-    public column( c ): Vec4 {
+    public column( c: number ): Vec4 {
       var column = [];
       for ( var i = 0; i < 4; i++ ) {
         column.push( this.get( i, c ) );
@@ -165,7 +165,7 @@ module gml {
       return new Vec4( column );
     }
 
-    public setColumn( c, v: Vec4 ) {
+    public setColumn( c: number, v: Vec4 ) {
       for ( var i = 0; i < 4; i++ ) {
         this.set( i, c, v.get( i ) );
       }
@@ -240,7 +240,7 @@ module gml {
     }
   }
 
-  export function makeMat4FromRows( r1, r2, r3, r4 ) {
+  export function makeMat4FromRows( r1: Vec4, r2: Vec4, r3: Vec4, r4: Vec4 ) {
     return new Mat4( r1.x, r2.x, r3.x, r4.x
                    , r1.y, r2.y, r3.y, r4.y
                    , r1.z, r2.z, r3.z, r4.z
