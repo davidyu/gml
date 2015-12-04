@@ -167,7 +167,7 @@ module gml {
 
     public setColumn( c: number, v: Vec4 ) {
       for ( var i = 0; i < 4; i++ ) {
-        this.set( i, c, v.get( i ) );
+        this.set( i, c, v.v[i] );
       }
     }
 
@@ -264,7 +264,7 @@ module gml {
   export function makeLookAt( pos: Vec4, aim: Vec4 /* target */, up: Vec4, right: Vec4 ): Mat4 {
     let x = right.normalized;
     let y = up.normalized;
-    let z = aim.sub( pos ).normalized;
+    let z = aim.subtract( pos ).normalized;
 
     var lookAt = makeMat4FromRows( x, y, z, new Vec4( 0, 0, 0, 1 ) );
     lookAt.tx = pos.x;

@@ -13,39 +13,43 @@ module gml {
     }
 
     public get x(): number {
-      return this.get( 0 );
+      return this.v[0];
     }
 
     public get y(): number {
-      return this.get( 1 );
+      return this.v[1];
     }
 
-    public set x( v: number ) {
-      this.set( 0, v );
+    public set x( x: number ) {
+      this.v[0] = x;
     }
 
-    public set y( v: number ) {
-      this.set( 1, v );
+    public set y( y: number ) {
+      this.v[1] = y;
     }
 
     public add( rhs: Vec2 ): Vec2 {
-      return new Vec2( super.add( rhs ).Float32Array );
+      return new Vec2( this.x + rhs.x, this.y + rhs.y );
     }
 
     public subtract( rhs: Vec2 ): Vec2 {
-      return new Vec2( super.subtract( rhs ).Float32Array );
+      return new Vec2( this.x - rhs.x, this.y - rhs.y );
     }
 
-    public scale( s: number ): Vec2 {
-      return new Vec2( super.scale( s ).Float32Array );
+    public multiply( s: number ): Vec2 {
+      return new Vec2( this.x * s, this.y * s );
+    }
+
+    public divide( d: number ): Vec2 {
+      return new Vec2( this.x / d, this.y / d );
     }
     
     public negate(): Vec2 {
-      return new Vec2( super.negate().Float32Array );
+      return new Vec2( -this.x, -this.y );
     }
 
     public map( callback: ( v: number ) => number ): Vec2 {
-      return new Vec2( super.map( callback ).Float32Array );
+      return new Vec2( this.v.map( callback ) );
     }
   }
 }
