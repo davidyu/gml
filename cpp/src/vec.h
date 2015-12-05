@@ -6,47 +6,34 @@ template <int n> struct Vec {
     float& operator[]( const int i ) {
         return this->v[i];
     }
-
-    Vec<n> operator+ ( Vec<n> rhs ) {
-        Vec<n> sum;
-        for ( int i = 0; i < n; i++ ) {
-            sum[i] = this->v[i] + rhs[i];
-        }
-        return sum;
-    }
-
-    Vec<n> operator- ( Vec<n> rhs ) {
-        Vec<n> difference;
-        for ( int i = 0; i < n; i++ ) {
-            difference[i] = this->v[i] - rhs[i];
-        }
-        return difference;
-    }
-
-    Vec<n> operator* ( Vec<n> rhs ) {
-        Vec<n> product;
-        for ( int i = 0; i < n; i++ ) {
-            product[i] = this->v[i] * rhs[i];
-        }
-        return product;
-    }
-
-    Vec<n> operator/ ( Vec<n> rhs ) {
-        Vec<n> quotient;
-        for ( int i = 0; i < n; i++ ) {
-            quotient[i] = this->v[i] / rhs[i];
-        }
-        return quotient;
-    }
-
-    Vec<n> operator/ ( float rhs ) {
-        Vec<n> scaled;
-        for ( int i = 0; i < n; i++ ) {
-            scaled[i] = this->v[i] / rhs;
-        }
-        return scaled;
-    }
 };
+
+template <int n>
+Vec<n> operator+ ( Vec<n> lhs, Vec<n> rhs ) {
+    Vec<n> sum;
+    for ( int i = 0; i < n; i++ ) {
+        sum[i] = lhs[i] + rhs[i];
+    }
+    return sum;
+}
+
+template <int n>
+Vec<n> operator- ( Vec<n> lhs, Vec<n> rhs ) {
+    Vec<n> difference;
+    for ( int i = 0; i < n; i++ ) {
+        difference[i] = lhs[i] - rhs[i];
+    }
+    return difference;
+}
+
+template <int n>
+Vec<n> operator* ( Vec<n> lhs, Vec<n> rhs ) {
+    Vec<n> product;
+    for ( int i = 0; i < n; i++ ) {
+        product[i] = lhs[i] * rhs[i];
+    }
+    return product;
+}
 
 template <int n>
 Vec<n> operator* ( Vec<n> lhs, float rhs ) {
@@ -62,23 +49,68 @@ Vec<n> operator* ( float lhs, Vec<n> rhs ) {
     return operator*( rhs, lhs );
 }
 
+template <int n>
+Vec<n> operator/ ( Vec<n> lhs, Vec<n> rhs ) {
+    Vec<n> quotient;
+    for ( int i = 0; i < n; i++ ) {
+        quotient[i] = lhs[i] / rhs[i];
+    }
+    return quotient;
+}
+
+template <int n>
+Vec<n> operator/ ( Vec<n> lhs, float rhs ) {
+    Vec<n> scaled;
+    for ( int i = 0; i < n; i++ ) {
+        scaled[i] = lhs[i] / rhs;
+    }
+    return scaled;
+}
+
+template<> struct Vec<2> {
+    union {
+        float v[2];
+        struct { float x, y; };
+        struct { float r, g; };
+    };
+
+    Vec( float x, float y ) {
+        this->x = x;
+        this->y = y;
+    }
+
+    Vec() {
+        this->x = 0;
+        this->y = 0;
+    }
+
+    float& operator[]( const int i ) {
+        return this->v[i];
+    }
+};
+
 template<> struct Vec<3> {
     union {
         float v[3];
         struct { float x, y, z; };
         struct { float r, g, b; };
+        Vec<2> xy;
     };
 
     Vec( float x, float y, float z ) {
-        x = x;
-        y = y;
-        z = z;
+        this->x = x;
+        this->y = y;
+        this->z = z;
     }
 
     Vec() {
-        x = 0;
-        y = 0;
-        z = 0;
+        this->x = 0;
+        this->y = 0;
+        this->z = 0;
+    }
+
+    float& operator[]( const int i ) {
+        return this->v[i];
     }
 };
 
@@ -87,20 +119,27 @@ template<> struct Vec<4> {
         float v[4];
         struct { float x, y, z, w; };
         struct { float r, g, b, a; };
+        Vec<2> xy;
+        Vec<3> xyz;
+        Vec<3> rgb;
     };
 
     Vec( float x, float y, float z, float w ) {
-        x = x;
-        y = y;
-        z = z;
-        w = w;
+        this->x = x;
+        this->y = y;
+        this->z = z;
+        this->w = w;
     }
 
     Vec() {
-        x = 0;
-        y = 0;
-        z = 0;
-        w = 0;
+        this->x = 0;
+        this->y = 0;
+        this->z = 0;
+        this->w = 0;
+    }
+
+    float& operator[]( const int i ) {
+        return this->v[i];
     }
 };
 
