@@ -38,7 +38,29 @@ template <int n> struct Vec {
         }
         return quotient;
     }
+
+    Vec<n> operator/ ( float rhs ) {
+        Vec<n> scaled;
+        for ( int i = 0; i < n; i++ ) {
+            scaled[i] = this->v[i] / rhs;
+        }
+        return scaled;
+    }
 };
+
+template <int n>
+Vec<n> operator* ( Vec<n> lhs, float rhs ) {
+    Vec<n> scaled;
+    for ( int i = 0; i < n; i++ ) {
+        scaled[i] = lhs[i] * rhs;
+    }
+    return scaled;
+}
+
+template <int n>
+Vec<n> operator* ( float lhs, Vec<n> rhs ) {
+    return operator*( rhs, lhs );
+}
 
 template<> struct Vec<3> {
     union {
