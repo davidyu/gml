@@ -3,8 +3,40 @@
 template <int n> struct Vec {
     float v[n];
 
-    const float& operator[]( const int i ) const {
+    float& operator[]( const int i ) {
         return this->v[i];
+    }
+
+    Vec<n> operator+ ( Vec<n> rhs ) {
+        Vec<n> sum;
+        for ( int i = 0; i < n; i++ ) {
+            sum[i] = this->v[i] + rhs[i];
+        }
+        return sum;
+    }
+
+    Vec<n> operator- ( Vec<n> rhs ) {
+        Vec<n> difference;
+        for ( int i = 0; i < n; i++ ) {
+            difference[i] = this->v[i] - rhs[i];
+        }
+        return difference;
+    }
+
+    Vec<n> operator* ( Vec<n> rhs ) {
+        Vec<n> product;
+        for ( int i = 0; i < n; i++ ) {
+            product[i] = this->v[i] * rhs[i];
+        }
+        return product;
+    }
+
+    Vec<n> operator/ ( Vec<n> rhs ) {
+        Vec<n> quotient;
+        for ( int i = 0; i < n; i++ ) {
+            quotient[i] = this->v[i] / rhs[i];
+        }
+        return quotient;
     }
 };
 
