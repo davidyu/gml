@@ -143,5 +143,7 @@ template<> struct Vec<4> {
     }
 };
 
+typedef Vec<2> Vec2;
+typedef Vec<3> Vec3;
 typedef Vec<4> Vec4;
 typedef Vec<4> Color;
