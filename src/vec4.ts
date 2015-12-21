@@ -30,6 +30,30 @@ module gml {
       return this.v[3];
     }
 
+    public get xyz(): Vec3 {
+      return new Vec3( this.x, this.y, this.z );
+    }
+
+    public get xy(): Vec2 {
+      return new Vec2( this.x, this.y );
+    }
+
+    public set x( x: number ) {
+      this.v[0] = x;
+    }
+
+    public set y( y: number ) {
+      this.v[1] = y;
+    }
+
+    public set z( z: number ) {
+      this.v[2] = z;
+    }
+
+    public set w( w: number ) {
+      this.v[3] = w;
+    }
+
     public add( rhs: Vec4 ): Vec4 {
       return new Vec4( this.x + rhs.x, this.y + rhs.y, this.z + rhs.z, this.w + rhs.w );
     }
@@ -45,9 +69,21 @@ module gml {
     public divide( d: number ): Vec4 {
       return new Vec4( this.x / d, this.y / d, this.z / d, this.w / d );
     }
-    
+
     public negate(): Vec4 {
       return new Vec4( -this.x, -this.y, -this.z, -this.w );
+    }
+
+    public dot( rhs: Vec4 ): number {
+      return this.x * rhs.x + this.y * rhs.y + this.z * rhs.z + this.w * rhs.w;
+    }
+
+    // ignores w component
+    public cross( rhs: Vec4 ): Vec4 {
+      return new Vec4( this.y * rhs.z - this.z * rhs.y
+                     , this.z * rhs.x - this.x * rhs.z
+                     , this.x * rhs.y - this.y * rhs.x
+                     , 0 );
     }
 
     public get normalized(): Vec4 {
@@ -57,6 +93,10 @@ module gml {
 
     public map( callback: ( v: number ) => number ): Vec4 {
       return new Vec4( this.v.map( callback ) );
+    }
+
+    public static randomInSphere( radius: number = 1 ) {
+      return new Vec4( Math.random(), Math.random(), Math.random(), 0 ).normalized.multiply( radius );
     }
   }
 }

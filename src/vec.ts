@@ -1,6 +1,6 @@
 module gml {
   /* public-facing vector (constructor sugar)
-    
+
      usage:
       new Vec(3)(x,y,z,...);
       new Vec(4)(a,b,c,d,...);
@@ -36,10 +36,6 @@ module gml {
       if ( this.v.length != this.size ) {
         console.warn( "input array " + args + " is not " + this.size + " elements long!" );
       }
-    }
-
-    public get Float32Array(): Float32Array {
-      return this.v;
     }
 
     public add( rhs: Vector ): Vector {
@@ -93,6 +89,17 @@ module gml {
       return new Vector( this.size, negated );
     }
 
+    public dot( rhs: Vector ): number {
+      if ( this.size != rhs.size ) {
+        console.warn( "rhs not " + this.size + " elements long!" );
+        return null;
+      }
+      var dp = 0;
+      for ( let i = 0; i < this.size; i++ ) {
+        dp += this.v[0] * rhs.v[0];
+      }
+    }
+
     public equals( b: Vector ): boolean {
       if ( this.size != b.size ) return false;
       for ( let i = 0; i < this.size; i++ ) {
@@ -106,8 +113,8 @@ module gml {
     }
 
     public get lensq(): number {
-      return this.v.reduce( ( acc, v ) => {
-        return acc + v * v;
+      return this.v.reduce( ( acc, c ) => {
+        return acc + c * c;
       }, 0 );
     }
 
