@@ -1,20 +1,47 @@
 var customEqualityTesters = {
   matrixEquality: function( a, b ) {
-    var e = 1e-6;
+    var ABSOLUTE_ERROR = 5e-5;
+    var RELATIVE_ERROR = 1e-3;
     if ( a instanceof gml.Matrix && b instanceof gml.Matrix ) {
       if ( a.rows != b.rows || a.cols != b.cols ) return false;
       for ( var i = 0; i < a.rows; i++ ) {
         for ( var j = 0; j < a.cols; j++ ) {
-          if ( Math.abs( a.get( i, j ) - b.get( i, j ) ) >= e ) return false;
+          var a_i_j = a.get( i, j );
+          var b_i_j = b.get( i, j );
+          var diff = Math.abs( a_i_j - b_i_j );
+          var max = Math.max( Math.abs( a_i_j ), Math.abs( b_i_j ) );
+          if ( diff > ABSOLUTE_ERROR && diff / max > RELATIVE_ERROR ) {
+            console.log( "error comparing " + a_i_j + " and " + b_i_j + " relative error of " + diff / max );
+            return false;
+          }
         }
       }
       return true;
     }
+  },
+
+  angleEquality: function( a, b ) {
+    if ( a instanceof gml.Angle && b instanceof gml.Angle ) {
+      var ABSOLUTE_ERROR = 5e-5;
+      var diff = Math.abs( a.toDegrees() - b.toDegrees() );
+      return ( diff <= ABSOLUTE_ERROR );
+    }
   }
 }
 
+describe( "angle tests", function() {
+  it( "tests reduction", function() {
+    expect( gml.fromDegrees( 720 ).reduceToOneTurn() ).toEqual( gml.fromDegrees( 360 ).reduceToOneTurn() );
+    expect( gml.fromDegrees( 540 ).reduceToOneTurn() ).toEqual( gml.fromDegrees( 180 ) );
+    expect( gml.fromDegrees( -180 ).reduceToOneTurn() ).toEqual( gml.fromDegrees( 180 ) );
+    expect( gml.fromDegrees( -100 ).reduceToOneTurn() ).toEqual( gml.fromDegrees( 260 ) );
+    expect( gml.fromDegrees( 180 ).add( gml.fromDegrees( 180 ) ) ).toEqual( gml.fromDegrees( 360 ) );
+    expect( gml.fromDegrees( 180 ).add( gml.fromDegrees( -180 ) ) ).toEqual( gml.fromDegrees( 0 ) );
+  } );
+} );
+
 describe( "vector tests", function() {
-  it( "tests vector accessors", function() {
+  it( "tests sanity", function() {
     var a = new gml.Vector( 2, 0, 1 );
     var b = new gml.Vector( 2, 2, 3 );
 
@@ -22,6 +49,61 @@ describe( "vector tests", function() {
     expect( a.v[1] ).toBe( 1 );
     expect( b.v[0] ).toBe( 2 );
     expect( b.v[1] ).toBe( 3 );
+  } );
+
+  it( "tests vector construction sugar", function() {
+    var a = new gml.Vec( 2 )( 0, 1 );
+    var b = new gml.Vec( 2 )( 2, 3 );
+    var c = new gml.Vec( 5 )( 1, 2, 3, 4, 5 );
+
+    expect( a.v[0] ).toBe( 0 );
+    expect( a.v[1] ).toBe( 1 );
+    expect( b.v[0] ).toBe( 2 );
+    expect( b.v[1] ).toBe( 3 );
+    expect( c.v[0] ).toBe( 1 );
+    expect( c.v[1] ).toBe( 2 );
+    expect( c.v[2] ).toBe( 3 );
+    expect( c.v[3] ).toBe( 4 );
+    expect( c.v[4] ).toBe( 5 );
+  } );
+
+  it( "tests vec2 accessors", function() {
+    var a = new gml.Vec2( 0, 1 );
+    expect( a.x ).toBe( 0 );
+    expect( a.y ).toBe( 1 );
+    a.x = 2;
+    a.y = 3;
+    expect( a.x ).toBe( 2 );
+    expect( a.y ).toBe( 3 );
+  } );
+
+  it( "tests vec3 accessors", function() {
+    var a = new gml.Vec3( 0, 1, 2 );
+    expect( a.x ).toBe( 0 );
+    expect( a.y ).toBe( 1 );
+    expect( a.z ).toBe( 2 );
+    a.x = 3;
+    a.y = 4;
+    a.z = 5;
+    expect( a.x ).toBe( 3 );
+    expect( a.y ).toBe( 4 );
+    expect( a.z ).toBe( 5 );
+  } );
+
+  it( "tests vec4 accessors", function() {
+    var a = new gml.Vec4( 0, 1, 2, 3 );
+    expect( a.x ).toBe( 0 );
+    expect( a.y ).toBe( 1 );
+    expect( a.z ).toBe( 2 );
+    expect( a.w ).toBe( 3 );
+    a.x = 3;
+    a.y = 4;
+    a.z = 5;
+    a.w = 6;
+    expect( a.x ).toBe( 3 );
+    expect( a.y ).toBe( 4 );
+    expect( a.z ).toBe( 5 );
+    expect( a.w ).toBe( 6 );
   } );
 } );
 
@@ -31,10 +113,10 @@ describe( "mat4 tests", function() {
   } );
 
   it( "tests mat4 getters", function() {
-    var a = new gml.Mat4( 1, 5, 9,13
-                        , 2, 6,10,14
-                        , 3, 7,11,15
-                        , 4, 8,12,16 );
+    var a = new gml.Mat4( 1  , 2  , 3  , 4
+                        , 5  , 6  , 7  , 8
+                        , 9  , 10 , 11 , 12
+                        , 13 , 14 , 15 , 16 );
 
     expect( a.r00 ).toBe( 1 );
     expect( a.r01 ).toBe( 2 );
@@ -94,10 +176,10 @@ describe( "mat4 tests", function() {
   } );
 
   it( "tests mat4 row and column getters", function() {
-    var a = new gml.Mat4( 1, 5, 9,13
-                        , 2, 6,10,14
-                        , 3, 7,11,15
-                        , 4, 8,12,16 );
+    var a = new gml.Mat4( 1  , 2  , 3  , 4
+                        , 5  , 6  , 7  , 8
+                        , 9  , 10 , 11 , 12
+                        , 13 , 14 , 15 , 16 );
 
     var row0 = new gml.Vec4( 1, 2, 3, 4 );
     var row1 = new gml.Vec4( 5, 6, 7, 8 );
@@ -189,10 +271,10 @@ describe( "mat4 tests", function() {
   } );
 
   it( "tests matrix row swapping", function() {
-    var a = new gml.Mat4( 1, 5, 9,13
-                        , 2, 6,10,14
-                        , 3, 7,11,15
-                        , 4, 8,12,16 );
+    var a = new gml.Mat4( 1  , 2  , 3  , 4
+                        , 5  , 6  , 7  , 8
+                        , 9  , 10 , 11 , 12
+                        , 13 , 14 , 15 , 16 );
 
     var row0 = new gml.Vec4( 1, 2, 3, 4 );
     var row1 = new gml.Vec4( 5, 6, 7, 8 );
@@ -217,38 +299,43 @@ describe( "mat4 tests", function() {
 
   it( "tests mat4 matrix multiplication", function() {
     var a = gml.Mat4.identity();
-    var b = new gml.Mat4( 1, 5, 9,13
-                        , 2, 6,10,14
-                        , 3, 7,11,15
-                        , 4, 8,12,16 );
+    var b = new gml.Mat4( 1  , 2  , 3  , 4
+                        , 5  , 6  , 7  , 8
+                        , 9  , 10 , 11 , 12
+                        , 13 , 14 , 15 , 16 );
 
-    expect( a.mul( b ) ).toEqual( b );
+    expect( a.multiply( b ) ).toEqual( b );
 
-    var c = new gml.Mat4( 1, 5, 9,13
-                        , 2, 6,10,14
-                        , 3, 7,11,15
-                        , 4, 8,12,16 );
+    var c = new gml.Mat4( 1  , 2  , 3  , 4
+                        , 5  , 6  , 7  , 8
+                        , 9  , 10 , 11 , 12
+                        , 13 , 14 , 15 , 16 );
 
     var d = new gml.Mat4(17,21,25,29
                         ,18,22,26,30
                         ,19,23,27,31
                         ,20,24,28,32 );
 
-    var e = new gml.Mat4(125,309,493,677
-                        ,130,322,514,706 
-                        ,135,335,535,735
-                        ,140,348,556,764).scalarmul( 2 );
+    var d = new gml.Mat4(17,18,19,20
+                        ,21,22,23,24
+                        ,25,26,27,28
+                        ,29,30,31,32);
 
-    var f = c.mul( d );
+    var e = new gml.Mat4(125,130,135,140
+                        ,309,322,335,348
+                        ,493,514,535,556
+                        ,677,706,735,764).multiply( 2 );
+
+    var f = c.multiply( d );
 
     expect( f ).toEqual( e );
   } );
 
   it( "tests LU decomposition", function() {
-    var a = new gml.Mat4( 0, 5, 9,13
-                        , 2, 0,10,14
-                        , 3, 7, 0,15
-                        , 4, 8,12, 0 );
+    var a = new gml.Mat4( 0, 2, 3, 4
+                        , 5, 0, 7, 8
+                        , 9,10, 0,12
+                        ,13,14,15, 0 );
 
     var lu = a.lu();
     var l = lu.l;
@@ -288,13 +375,104 @@ describe( "mat4 tests", function() {
   } );
 
   it( "tests inverse", function() {
-    var a = new gml.Mat4( 0, 5, 9,13
-                        , 2, 0,10,14
-                        , 3, 7, 0,15
-                        , 4, 8,12, 0 );
+    var a = new gml.Mat4( 0, 2, 3, 4
+                        , 5, 0, 7, 8
+                        , 9,10, 0,12
+                        ,13,14,15, 0 );
 
     var b = a.invert();
 
-    expect( a.mul( b ) ).toEqual( gml.Mat4.identity() );
+    expect( a.multiply( b ) ).toEqual( gml.Mat4.identity() );
+  } );
+
+  it( "tests perspective transform matrix", function() {
+    var fov = 45;
+    var glMatrixPerspective = [];
+    var aspect = 4/3;
+    var near = 1;
+    var far = 100;
+
+    // construct ground truth to test against
+    glMatrix.setMatrixArrayType( Array );
+    mat4.perspective( glMatrixPerspective, gml.fromDegrees( fov ).toRadians(), aspect, near, far );
+    mat4.transpose( glMatrixPerspective, glMatrixPerspective );
+
+    var perspective = gml.makePerspective( gml.fromDegrees( fov ), aspect, near, far );
+    var groundTruthPerspective = new gml.Mat4( glMatrixPerspective );
+
+    expect( perspective ).toEqual( groundTruthPerspective );
+  } );
+
+  it( "tests camera matrix", function() {
+    var NUM_ITERATIONS = 10;
+    var POSITION_UPPER_LIMIT = 1000;
+    for ( var i = 0; i < NUM_ITERATIONS; i++ ) {
+      var pos = gml.Vec4.randomInSphere( POSITION_UPPER_LIMIT );
+
+      var aimV = gml.Vec4.randomInSphere();
+      var rightV = gml.Vec4.randomInSphere();
+      var upV = rightV.cross( aimV ).normalized;
+      var rightV = aimV.cross( upV ).normalized;
+
+      var glMatrixLookAt = [];
+      mat4.lookAt( glMatrixLookAt, pos.xyz.v, pos.add( aimV ).xyz.v, upV.xyz.v );
+      mat4.transpose( glMatrixLookAt, glMatrixLookAt );
+
+      var groundTruthLookAt = new gml.Mat4( glMatrixLookAt );
+      var lookAt = gml.makeLookAt( pos, aimV, upV, rightV );
+
+      expect( lookAt ).toEqual( groundTruthLookAt );
+    }
+  } );
+
+  it( "tests y-rotation matrix", function() {
+    var NUM_ITERATIONS = 10;
+    for ( var i = 0; i < NUM_ITERATIONS; i++ ) {
+      var rot = Math.random() * Math.PI * 2;
+      var glMatrixId = mat4.create();
+      var glMatrixRotateY = [];
+
+      mat4.rotateY( glMatrixRotateY, glMatrixId, -rot );
+      mat4.transpose( glMatrixRotateY, glMatrixRotateY );
+
+      var groundTruthRotateY = new gml.Mat4( glMatrixRotateY );
+      var rotateY = gml.Mat4.rotateY( gml.fromRadians( rot ) );
+
+      expect( groundTruthRotateY ).toEqual( rotateY );
+    }
+  } );
+
+  it( "tests x-rotation matrix", function() {
+    var NUM_ITERATIONS = 10;
+    for ( var i = 0; i < NUM_ITERATIONS; i++ ) {
+      var rot = Math.random() * Math.PI * 2;
+      var glMatrixId = mat4.create();
+      var glMatrixRotateX = [];
+
+      mat4.rotateX( glMatrixRotateX, glMatrixId, -rot );
+      mat4.transpose( glMatrixRotateX, glMatrixRotateX );
+
+      var groundTruthRotateX = new gml.Mat4( glMatrixRotateX );
+      var rotateX = gml.Mat4.rotateX( gml.fromRadians( rot ) );
+
+      expect( groundTruthRotateX ).toEqual( rotateX );
+    }
+  } );
+
+  it( "tests z-rotation matrix", function() {
+    var NUM_ITERATIONS = 10;
+    for ( var i = 0; i < NUM_ITERATIONS; i++ ) {
+      var rot = Math.random() * Math.PI * 2;
+      var glMatrixId = mat4.create();
+      var glMatrixRotateZ = [];
+
+      mat4.rotateZ( glMatrixRotateZ, glMatrixId, -rot );
+      mat4.transpose( glMatrixRotateZ, glMatrixRotateZ );
+
+      var groundTruthRotateZ = new gml.Mat4( glMatrixRotateZ );
+      var rotateZ = gml.Mat4.rotateZ( gml.fromRadians( rot ) );
+
+      expect( groundTruthRotateZ ).toEqual( rotateZ );
+    }
   } );
 } );

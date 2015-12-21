@@ -15,7 +15,7 @@ module gml {
   // internal matrix implementation; exported because Mat3, Mat4 needs access
   // note that matrices are stored in column major order to conform to WebGL
   export class Matrix {
-    values: Float32Array;
+    v: Float32Array;
     rows: number;
     cols: number;
 
@@ -27,14 +27,14 @@ module gml {
       this.cols = cols;
       if ( args.length == 1 ) {
         if ( args[0] instanceof Float32Array ) {
-          this.values = args[0];
+          this.v = args[0];
         } else if ( args[0] instanceof Array ) {
-          this.values = new Float32Array( args[0] );
+          this.v = new Float32Array( args[0] );
         }
       } else {
-        this.values = new Float32Array( args );
+        this.v = new Float32Array( args );
       }
-      if ( this.values.length != this.rows * this.cols ) {
+      if ( this.v.length != this.rows * this.cols ) {
         console.warn( "input values " + args + " is not " + this.rows * this.cols + " elements long!" );
       }
     }
@@ -50,15 +50,15 @@ module gml {
     }
 
     public transpose(): Matrix {
-      return new Matrix( this.cols, this.rows, this.transpose_Float32Array( this.values, this.rows, this.cols ) );
-    }
-
-    public get Float32Array(): Float32Array {
-      return this.values;
+      return new Matrix( this.cols, this.rows, this.transpose_Float32Array( this.v, this.rows, this.cols ) );
     }
 
     public get( r: number, c: number ): number {
-      return this.values[ c * this.rows + r ];
+      return this.v[ r * this.cols + c ];
+    }
+
+    public set( r: number, c: number, val: number ) {
+      this.v[ r * this.cols + c ] = val;
     }
 
     public row( r: number ): Vector {
@@ -69,9 +69,9 @@ module gml {
       return new Vector( this.cols, row );
     }
 
-    public setRow( r: number, v: Vector ) {
+    public setRow( r: number, row: Vector ) {
       for ( var i = 0; i < this.cols; i++ ) {
-        this.set( r, i, v.v[i] );
+        this.set( r, i, row.v[i] );
       }
     }
 
@@ -110,7 +110,7 @@ module gml {
       }
 
       let l = Matrix.identity( this.rows );
-      let u = new Matrix( this.rows, this.cols, this.values );
+      let u = new Matrix( this.rows, this.cols, this.v );
 
       let size = this.rows;
 
@@ -142,8 +142,8 @@ module gml {
           l_i_inv.set( i, n, -l_i_n );
         }
 
-        l = l.mul( l_i_inv );
-        u = l_i.mul( u );
+        l = l.multiply( l_i_inv );
+        u = l_i.multiply( u );
       }
 
       return { l: l, u: u };
@@ -168,36 +168,38 @@ module gml {
       return det;
     }
 
-    public set( r: number, c: number, v: number ) {
-      this.values[ c * this.rows + r ] = v;
-    }
-
-    public mul( rhs: Matrix ): Matrix {
-      return Matrix.matmul( this, rhs );
-    }
-
-    public sub( rhs: Matrix ): Matrix {
-      let vs = [];
-      let rvs = rhs.Float32Array;
-      for ( let i = 0; i < this.values.length; i++ ) {
-        vs.push( this.values[i] - rvs[i] );
-      }
-      return new Matrix( this.rows, this.cols, vs );
-    }
-
     public add( rhs: Matrix ): Matrix {
       let vs = [];
-      let rvs = rhs.Float32Array;
-      for ( let i = 0; i < this.values.length; i++ ) {
-        vs.push( this.values[i] + rvs[i] );
+      let rvs = rhs.v;
+      for ( let i = 0; i < this.v.length; i++ ) {
+        vs.push( this.v[i] + rvs[i] );
       }
       return new Matrix( this.rows, this.cols, vs );
+    }
+
+    public subtract( rhs: Matrix ): Matrix {
+      let vs = [];
+      let rvs = rhs.v;
+      for ( let i = 0; i < this.v.length; i++ ) {
+        vs.push( this.v[i] - rvs[i] );
+      }
+      return new Matrix( this.rows, this.cols, vs );
+    }
+
+    public multiply( rhs: Matrix ): Matrix;
+    public multiply( s: number ): Matrix;
+    public multiply( arg: any ): Matrix {
+      if ( arg instanceof Matrix ) {
+        return Matrix.matmul( this, arg );
+      } else {
+        return this.scalarmul( arg );
+      }
     }
 
     public scalarmul( s: number ): Matrix {
       let vs = [];
-      for ( let i = 0; i < this.values.length; i++ ) {
-        vs.push( this.values[i] * s );
+      for ( let i = 0; i < this.v.length; i++ ) {
+        vs.push( this.v[i] * s );
       }
       return new Matrix( this.rows, this.cols, vs );
     }
@@ -215,7 +217,7 @@ module gml {
           for ( let k = 0; k < lhs.cols; k++ ) {
             sum += lhs.get( i, k ) * rhs.get( k, j );
           }
-          out[ j * lhs.rows + i ] = sum;
+          out[ i * lhs.cols + j ] = sum;
         }
       }
 
@@ -235,6 +237,25 @@ module gml {
     }
 
     public toString() {
+      var str = "";
+
+      for ( var i = 0; i < this.rows; i++ ) {
+        str += "\n\t";
+        for ( var j = 0; j < this.cols; j++ ) {
+          var v = this.get( i, j );
+          str += v.toPrecision(8) + "\t";
+        }
+        str = str.slice( 0, -1 );
+        str += "\n"
+      }
+
+      str = str.slice( 0, -1 );
+
+      str += "\n";
+      return str;
+    }
+
+    public toWolframString() {
       var str = "{";
 
       for ( var i = 0; i < this.rows; i++ ) {
@@ -250,6 +271,10 @@ module gml {
 
       str += "}";
       return str;
+    }
+
+    public get m(): Float32Array {
+      return this.transpose_Float32Array( this.v, this.rows, this.cols );      
     }
   }
 }
