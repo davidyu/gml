@@ -109,7 +109,6 @@
 						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml.vector.html#float32array" class="tsd-kind-icon">Float32<wbr>Array</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml.vector.html#len" class="tsd-kind-icon">len</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml.vector.html#lensq" class="tsd-kind-icon">lensq</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml.vector.html#normalized" class="tsd-kind-icon">normalized</a></li>
@@ -120,6 +119,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.vector.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.vector.html#divide" class="tsd-kind-icon">divide</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.vector.html#dot" class="tsd-kind-icon">dot</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.vector.html#equals" class="tsd-kind-icon">equals</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.vector.html#map" class="tsd-kind-icon">map</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.vector.html#multiply" class="tsd-kind-icon">multiply</a></li>
@@ -147,7 +147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L19">vec.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L19">vec.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -164,7 +164,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L21">vec.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L21">vec.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -181,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L22">vec.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L22">vec.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -206,7 +206,7 @@
 					<div class="tsd-signature tsd-kind-icon">size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L19">vec.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L19">vec.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,30 +216,13 @@
 					<div class="tsd-signature tsd-kind-icon">v<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Float32Array</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L18">vec.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L18">vec.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="float32array" class="tsd-anchor"></a>
-					<h3>Float32<wbr>Array</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> Float32Array<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Float32Array</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L41">vec.ts:41</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Float32Array</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
 					<a name="len" class="tsd-anchor"></a>
 					<h3>len</h3>
@@ -250,7 +233,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L104">vec.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L111">vec.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -267,7 +250,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L108">vec.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L115">vec.ts:115</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -284,7 +267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L132">vec.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L139">vec.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -304,7 +287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L45">vec.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L41">vec.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -327,7 +310,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L80">vec.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L76">vec.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -341,6 +324,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="dot" class="tsd-anchor"></a>
+					<h3>dot</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">dot<span class="tsd-signature-symbol">(</span>rhs<span class="tsd-signature-symbol">: </span><a href="gml.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L92">vec.ts:92</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rhs: <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="equals" class="tsd-anchor"></a>
 					<h3>equals</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -350,7 +356,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L96">vec.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L103">vec.ts:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -373,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L136">vec.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L143">vec.ts:143</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -414,7 +420,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L72">vec.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L68">vec.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -437,7 +443,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L88">vec.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L84">vec.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -454,7 +460,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L115">vec.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L122">vec.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -471,7 +477,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L59">vec.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L55">vec.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -494,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L140">vec.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L147">vec.ts:147</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -511,7 +517,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/davidyu/gml/blob/master/ts/src/vec.ts#L123">vec.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L130">vec.ts:130</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -578,9 +584,6 @@
 								<a href="gml.vector.html#v" class="tsd-kind-icon">v</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="gml.vector.html#float32array" class="tsd-kind-icon">Float32<wbr>Array</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="gml.vector.html#len" class="tsd-kind-icon">len</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
@@ -594,6 +597,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="gml.vector.html#divide" class="tsd-kind-icon">divide</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gml.vector.html#dot" class="tsd-kind-icon">dot</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="gml.vector.html#equals" class="tsd-kind-icon">equals</a>
@@ -634,6 +640,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="../modules/gml.html#makelookat" class="tsd-kind-icon">make<wbr>Look<wbr>At</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/gml.html#makemat4fromcols" class="tsd-kind-icon">make<wbr>Mat4<wbr>From<wbr>Cols</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="../modules/gml.html#makemat4fromrows" class="tsd-kind-icon">make<wbr>Mat4<wbr>From<wbr>Rows</a>
