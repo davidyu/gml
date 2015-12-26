@@ -1,3 +1,5 @@
+///<reference path="../mat.ts"/>
+
 module gml {
   export class Mat4 extends Matrix {
 
@@ -211,6 +213,13 @@ module gml {
       return new Mat4( m.v );
     }
 
+    public transform( rhs: Vec4 ): Vec4 {
+      return new Vec4( this.r00 * rhs.x + this.r01 * rhs.y + this.r02 * rhs.z + this.tx * rhs.w
+                     , this.r10 * rhs.x + this.r11 * rhs.y + this.r12 * rhs.z + this.ty * rhs.w
+                     , this.r20 * rhs.x + this.r21 * rhs.y + this.r22 * rhs.z + this.tz * rhs.w
+                     , this.m30 * rhs.x + this.m31 * rhs.y + this.m32 * rhs.z + this.m33 * rhs.w );
+    }
+
     public invert(): Mat4 {
       let d = this.determinant;
       let tr = this.trace;
@@ -266,6 +275,21 @@ module gml {
                      , -s, c, 0, 0
                      ,  0, 0, 1, 0
                      ,  0, 0, 0, 1 );
+    }
+
+    public static rotate( axis: Vec4, angle: Angle ): Mat4 {
+      let k = new Mat4(       0, -axis.z,  axis.y, 0
+                      ,  axis.z,       0, -axis.x, 0
+                      , -axis.y,  axis.x,       0, 0
+                      ,       0,       0,       0, 0 );
+
+      let k2 = k.multiply( k );
+
+      let r = angle.toRadians();
+    
+      return Mat4.identity()
+            .add( k.multiply( Math.sin( r ) ) )
+            .add( k2.multiply( 1 - Math.cos( r ) ) );
     }
   }
 

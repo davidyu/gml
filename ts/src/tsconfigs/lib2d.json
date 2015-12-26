@@ -1,20 +1,17 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "out": "../dist/gml.js",
+    "out": "../dist/gml2d.js",
     "target": "ES5",
     "removeComments": true
   },
   "files": [
-    "gml.ts",
     "easing.ts",
     "angle.ts",
     "vec.ts",
     "mat.ts",
-    "3d/vec2.ts",
-    "3d/vec3.ts",
-    "3d/vec4.ts",
-    "3d/mat3.ts",
-    "3d/mat4.ts"
+    "2d/vec2.ts",
+    "2d/vec3.ts",
+    "2d/mat3.ts"
   ]
 }
