@@ -1,4 +1,4 @@
-/// <reference path='vec.ts'/>
+/// <reference path='../vec.ts'/>
 
 module gml {
   export class Vec4 extends Vector {
@@ -30,6 +30,22 @@ module gml {
       return this.v[3];
     }
 
+    public get r(): number {
+      return this.v[0];
+    }
+
+    public get g(): number {
+      return this.v[1];
+    }
+
+    public get b(): number {
+      return this.v[2];
+    }
+
+    public get a(): number {
+      return this.v[3];
+    }
+
     public get xyz(): Vec3 {
       return new Vec3( this.x, this.y, this.z );
     }
@@ -52,6 +68,22 @@ module gml {
 
     public set w( w: number ) {
       this.v[3] = w;
+    }
+
+    public set r( r: number ) {
+      this.v[0] = r;
+    }
+
+    public set g( g: number ) {
+      this.v[1] = g;
+    }
+
+    public set b( b: number ) {
+      this.v[2] = b;
+    }
+
+    public set a( a: number ) {
+      this.v[3] = a;
     }
 
     public add( rhs: Vec4 ): Vec4 {
@@ -95,8 +127,26 @@ module gml {
       return new Vec4( this.v.map( callback ) );
     }
 
-    public static randomInSphere( radius: number = 1 ) {
+    public static randomInSphere( radius: number = 1 ): Vec4 {
       return new Vec4( Math.random(), Math.random(), Math.random(), 0 ).normalized.multiply( radius );
+    }
+
+    public static randomPositionInSphere( radius: number = 1 ): Vec4 {
+      let random = new Vec4( Math.random(), Math.random(), Math.random(), 0 ).normalized.multiply( radius )
+      random.w = 1;
+      return random;
+    }
+
+    public static get origin(): Vec4 {
+      return new Vec4( 0, 0, 0, 1 );
+    }
+
+    public static get up(): Vec4 {
+      return new Vec4( 0, 1, 0, 0 );
+    }
+
+    public static get right(): Vec4 {
+      return new Vec4( 1, 0, 0, 0 );
     }
   }
 }

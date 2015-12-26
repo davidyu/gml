@@ -1,3 +1,5 @@
+///<reference path="vec.ts"/>
+
 module gml {
   /* public-facing matrix (constructor sugar)
     
@@ -236,7 +238,7 @@ module gml {
       return new Matrix( size, size, v );
     }
 
-    public toString() {
+    public toString(): string {
       var str = "";
 
       for ( var i = 0; i < this.rows; i++ ) {

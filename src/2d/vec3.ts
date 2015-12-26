@@ -1,5 +1,7 @@
-module gml {
-  export class Vec3 extends Vector {
+///<reference path="../vec.ts"/>
+
+module gml2d {
+  export class Vec3 extends gml.Vector {
     constructor( v: number[] );
     constructor( v: Float32Array );
     constructor( x: number, y: number, z: number );
@@ -60,10 +62,8 @@ module gml {
       return this.x * rhs.x + this.y * rhs.y + this.z * rhs.z;
     }
 
-    public cross( rhs: Vec3 ): Vec3 {
-      return new Vec3( this.y * rhs.z - this.z * rhs.y
-                     , this.z * rhs.x - this.x * rhs.z
-                     , this.x * rhs.y - this.y * rhs.x );
+    public cross( rhs: Vec3 ): number {
+      return this.x * rhs.y - this.y * rhs.x;
     }
 
     public get normalized(): Vec3 {
