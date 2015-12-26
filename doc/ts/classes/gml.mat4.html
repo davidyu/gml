@@ -147,9 +147,11 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml.mat4.html#swaprows" class="tsd-kind-icon">swap<wbr>Rows</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml.mat4.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml.mat4.html#towolframstring" class="tsd-kind-icon">to<wbr>Wolfram<wbr>String</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gml.mat4.html#transform" class="tsd-kind-icon">transform</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="gml.mat4.html#transpose" class="tsd-kind-icon">transpose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="gml.mat4.html#identity" class="tsd-kind-icon">identity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="gml.mat4.html#matmul" class="tsd-kind-icon">matmul</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml.mat4.html#rotate" class="tsd-kind-icon">rotate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml.mat4.html#rotatex" class="tsd-kind-icon">rotateX</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml.mat4.html#rotatey" class="tsd-kind-icon">rotateY</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml.mat4.html#rotatez" class="tsd-kind-icon">rotateZ</a></li>
@@ -173,7 +175,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L2">mat4.ts:2</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L4">3d/mat4.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -188,7 +190,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L4">mat4.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L6">3d/mat4.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -203,7 +205,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L5">mat4.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L7">3d/mat4.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -271,7 +273,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#cols">cols</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L20">mat.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L22">mat.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +284,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#rows">rows</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L19">mat.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L21">mat.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +295,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#v">v</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L18">mat.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L20">mat.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +313,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#determinant">determinant</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L152">mat.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L154">mat.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -329,7 +331,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#m">m</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L276">mat.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L278">mat.ts:278</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Float32Array</span></h4>
@@ -347,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L52">mat4.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L54">3d/mat4.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -355,7 +357,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L104">mat4.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L106">3d/mat4.ts:106</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -379,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L56">mat4.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L58">3d/mat4.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -387,7 +389,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L108">mat4.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L110">3d/mat4.ts:110</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -411,7 +413,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L60">mat4.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L62">3d/mat4.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -419,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L112">mat4.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L114">3d/mat4.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -443,7 +445,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L64">mat4.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L66">3d/mat4.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -451,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L116">mat4.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L118">3d/mat4.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -474,7 +476,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L231">mat4.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L240">3d/mat4.ts:240</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.mat3.html" class="tsd-signature-type">Mat3</a></h4>
@@ -492,7 +494,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L16">mat4.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L18">3d/mat4.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -500,7 +502,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L68">mat4.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L70">3d/mat4.ts:70</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -524,7 +526,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L20">mat4.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L22">3d/mat4.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -532,7 +534,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L72">mat4.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L74">3d/mat4.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -556,7 +558,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L24">mat4.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L26">3d/mat4.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -564,7 +566,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L76">mat4.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L78">3d/mat4.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -588,7 +590,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L28">mat4.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L30">3d/mat4.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -596,7 +598,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L80">mat4.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L82">3d/mat4.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -620,7 +622,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L32">mat4.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L34">3d/mat4.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -628,7 +630,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L84">mat4.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L86">3d/mat4.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -652,7 +654,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L36">mat4.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L38">3d/mat4.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -660,7 +662,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L88">mat4.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L90">3d/mat4.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -684,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L40">mat4.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L42">3d/mat4.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -692,7 +694,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L92">mat4.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L94">3d/mat4.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -716,7 +718,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L44">mat4.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L46">3d/mat4.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -724,7 +726,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L96">mat4.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L98">3d/mat4.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -748,7 +750,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L48">mat4.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L50">3d/mat4.ts:50</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -756,7 +758,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L100">mat4.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L102">3d/mat4.ts:102</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -780,7 +782,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L182">mat4.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L184">3d/mat4.ts:184</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.vec3.html" class="tsd-signature-type">Vec3</a></h4>
@@ -788,7 +790,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L186">mat4.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L188">3d/mat4.ts:188</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -812,7 +814,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#trace">trace</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L93">mat.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L95">mat.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -830,7 +832,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L174">mat4.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L176">3d/mat4.ts:176</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.vec4.html" class="tsd-signature-type">Vec4</a></h4>
@@ -838,7 +840,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L178">mat4.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L180">3d/mat4.ts:180</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -862,7 +864,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L120">mat4.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L122">3d/mat4.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -870,7 +872,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L132">mat4.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L134">3d/mat4.ts:134</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -894,7 +896,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L124">mat4.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L126">3d/mat4.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -902,7 +904,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L136">mat4.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L138">3d/mat4.ts:138</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -926,7 +928,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L128">mat4.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L130">3d/mat4.ts:130</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -934,7 +936,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L140">mat4.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L142">3d/mat4.ts:142</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -958,7 +960,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L144">mat4.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L146">3d/mat4.ts:146</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -966,7 +968,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L148">mat4.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L150">3d/mat4.ts:150</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -993,7 +995,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L209">mat4.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L211">3d/mat4.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1017,7 +1019,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#column">column</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L160">mat4.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L162">3d/mat4.ts:162</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1041,7 +1043,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L56">mat.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L58">mat.ts:58</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1067,7 +1069,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L214">mat4.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L223">3d/mat4.ts:223</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.mat4.html" class="tsd-signature-type">Mat4</a></h4>
@@ -1085,7 +1087,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#lu">lu</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L106">mat.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L108">mat.ts:108</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -1112,7 +1114,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#multiply">multiply</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L192">mat4.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L194">3d/mat4.ts:194</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1127,7 +1129,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#multiply">multiply</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L193">mat4.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L195">3d/mat4.ts:195</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1151,7 +1153,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#row">row</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L152">mat4.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L154">3d/mat4.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1175,7 +1177,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#scalarmul">scalarmul</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L199">mat4.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L201">3d/mat4.ts:201</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1199,7 +1201,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L60">mat.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L62">mat.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1228,7 +1230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L168">mat4.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L170">3d/mat4.ts:170</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1255,7 +1257,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#setrow">setRow</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L72">mat.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L74">mat.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1282,7 +1284,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#subtract">subtract</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L204">mat4.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L206">3d/mat4.ts:206</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1306,7 +1308,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#swaprows">swapRows</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L78">mat.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L80">mat.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1333,7 +1335,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L239">mat.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L241">mat.ts:241</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1351,10 +1353,33 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#towolframstring">toWolframString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L258">mat.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L260">mat.ts:260</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="transform" class="tsd-anchor"></a>
+					<h3>transform</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">transform<span class="tsd-signature-symbol">(</span>rhs<span class="tsd-signature-symbol">: </span><a href="gml.vec4.html" class="tsd-signature-type">Vec4</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml.vec4.html" class="tsd-signature-type">Vec4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L216">3d/mat4.ts:216</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rhs: <a href="gml.vec4.html" class="tsd-signature-type">Vec4</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gml.vec4.html" class="tsd-signature-type">Vec4</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1369,7 +1394,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#transpose">transpose</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L227">mat4.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L236">3d/mat4.ts:236</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.mat4.html" class="tsd-signature-type">Mat4</a></h4>
@@ -1387,7 +1412,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#identity">identity</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L237">mat4.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L246">3d/mat4.ts:246</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.mat4.html" class="tsd-signature-type">Mat4</a></h4>
@@ -1405,7 +1430,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#matmul">matmul</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L207">mat.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L209">mat.ts:209</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1422,6 +1447,32 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="rotate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> rotate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>axis<span class="tsd-signature-symbol">: </span><a href="gml.vec4.html" class="tsd-signature-type">Vec4</a>, angle<span class="tsd-signature-symbol">: </span><a href="../interfaces/gml.angle.html" class="tsd-signature-type">Angle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml.mat4.html" class="tsd-signature-type">Mat4</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L280">3d/mat4.ts:280</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>axis: <a href="gml.vec4.html" class="tsd-signature-type">Vec4</a></h5>
+								</li>
+								<li>
+									<h5>angle: <a href="../interfaces/gml.angle.html" class="tsd-signature-type">Angle</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gml.mat4.html" class="tsd-signature-type">Mat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="rotatex" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> rotateX</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
@@ -1431,7 +1482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L253">mat4.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L262">3d/mat4.ts:262</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1454,7 +1505,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L244">mat4.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L253">3d/mat4.ts:253</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1477,7 +1528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat4.ts#L262">mat4.ts:262</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L271">3d/mat4.ts:271</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1501,12 +1552,18 @@
 					<li class="current tsd-kind-module">
 						<a href="../modules/gml.html">gml</a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/gml2d.html">gml2d</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="gml.degree.html" class="tsd-kind-icon">Degree</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="gml.easing.html" class="tsd-kind-icon">Easing</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="gml.mat.html" class="tsd-kind-icon">Mat</a>
@@ -1645,6 +1702,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="gml.mat4.html#towolframstring" class="tsd-kind-icon">to<wbr>Wolfram<wbr>String</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gml.mat4.html#transform" class="tsd-kind-icon">transform</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="gml.mat4.html#transpose" class="tsd-kind-icon">transpose</a>
 							</li>
@@ -1653,6 +1713,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="gml.mat4.html#matmul" class="tsd-kind-icon">matmul</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gml.mat4.html#rotate" class="tsd-kind-icon">rotate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="gml.mat4.html#rotatex" class="tsd-kind-icon">rotateX</a>
