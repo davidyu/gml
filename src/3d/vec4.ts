@@ -110,7 +110,13 @@ module gml {
       return this.x * rhs.x + this.y * rhs.y + this.z * rhs.z + this.w * rhs.w;
     }
 
-    // ignores w component
+    /**
+     * Computes the cross product as if this were a 3D vector (Vec3)
+     *
+     * @returns a Vec4 with its xyz components representing the 3D cross product
+     *          between this and rhs. The w component of the resulting vector is
+     *          always set to 0
+     */
     public cross( rhs: Vec4 ): Vec4 {
       return new Vec4( this.y * rhs.z - this.z * rhs.y
                      , this.z * rhs.x - this.x * rhs.z
@@ -127,14 +133,26 @@ module gml {
       return new Vec4( this.v.map( callback ) );
     }
 
+    /**
+     * @returns a random directional Vec4 in a user-specified sphere centered around (0, 0, 0).
+     *          Note that the w-component of the Vec4 is 0.
+     */
     public static randomInSphere( radius: number = 1 ): Vec4 {
       return new Vec4( Math.random(), Math.random(), Math.random(), 0 ).normalized.multiply( radius );
     }
 
+    /**
+     * @returns a random positional Vec4 in a user-specified sphere centered around (0, 0, 0).
+     *          Note that the w-component of the Vec4 is 1.
+     */
     public static randomPositionInSphere( radius: number = 1 ): Vec4 {
       let random = new Vec4( Math.random(), Math.random(), Math.random(), 0 ).normalized.multiply( radius )
       random.w = 1;
       return random;
+    }
+
+    public static get zero(): Vec4 {
+      return new Vec4( 0, 0, 0, 0 );
     }
 
     public static get origin(): Vec4 {
