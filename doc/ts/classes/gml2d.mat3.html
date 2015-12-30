@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Mat3 | </title>
+	<title>Mat3 | gml</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title"></a>
+					<a href="../index.html" class="title">gml</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -70,6 +70,20 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<dl class="tsd-comment-tags">
+						<dt>preferred</dt>
+						<dd><p>an homogenous 2D transformation matrix (with rotations in theta specified in CCW):</p>
+							<pre>
+sx * cos(theta),-sx * sin(theta), tx
+sy * sin(theta), sy * cos(theta), ty
+0              , 0              ,  1
+</pre>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -106,23 +120,20 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#determinant" class="tsd-kind-icon">determinant</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#m" class="tsd-kind-icon">m</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#m20" class="tsd-kind-icon">m20</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r00" class="tsd-kind-icon">r00</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r01" class="tsd-kind-icon">r01</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r02" class="tsd-kind-icon">r02</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r10" class="tsd-kind-icon">r10</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r11" class="tsd-kind-icon">r11</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r12" class="tsd-kind-icon">r12</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r20" class="tsd-kind-icon">r20</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r21" class="tsd-kind-icon">r21</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#r22" class="tsd-kind-icon">r22</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="gml2d.mat3.html#rot_raw" class="tsd-kind-icon">rot_<wbr>raw</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-private"><a href="gml2d.mat3.html#rot_rad" class="tsd-kind-icon">rot_<wbr>rad</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.mat3.html#rotation" class="tsd-kind-icon">rotation</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.mat3.html#sx" class="tsd-kind-icon">sx</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.mat3.html#sy" class="tsd-kind-icon">sy</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#trace" class="tsd-kind-icon">trace</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.mat3.html#tx" class="tsd-kind-icon">tx</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.mat3.html#ty" class="tsd-kind-icon">ty</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.mat3.html#w" class="tsd-kind-icon">w</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -136,12 +147,15 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="gml2d.mat3.html#row" class="tsd-kind-icon">row</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#scalarmul" class="tsd-kind-icon">scalarmul</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#set" class="tsd-kind-icon">set</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#setcolumn" class="tsd-kind-icon">set<wbr>Column</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#setrow" class="tsd-kind-icon">set<wbr>Row</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#subtract" class="tsd-kind-icon">subtract</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#swaprows" class="tsd-kind-icon">swap<wbr>Rows</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#towolframstring" class="tsd-kind-icon">to<wbr>Wolfram<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.mat3.html#transpose" class="tsd-kind-icon">transpose</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml2d.mat3.html#fromcols" class="tsd-kind-icon">from<wbr>Cols</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml2d.mat3.html#fromrows" class="tsd-kind-icon">from<wbr>Rows</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static"><a href="gml2d.mat3.html#identity" class="tsd-kind-icon">identity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="gml2d.mat3.html#matmul" class="tsd-kind-icon">matmul</a></li>
 							</ul>
@@ -164,7 +178,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L4">2d/mat3.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L32">2d/mat3.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -179,7 +193,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L34">2d/mat3.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L33">2d/mat3.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -194,7 +208,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L35">2d/mat3.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L34">2d/mat3.ts:34</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -241,7 +255,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#cols">cols</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L32">mat.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L13">mat.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +266,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#rows">rows</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L31">mat.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L12">mat.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +277,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#v">v</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L30">mat.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L11">mat.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,10 +303,18 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#determinant">determinant</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L189">mat.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L200">mat.ts:200</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>the determinant of the matrix, if it is square.</p>
+							<p>NOTE: If you try to acquire the determinant of a nonsquare matrix,
+							the result returned will be 0.</p>
+							<p>If the LU decomposition of the matrix fails (IE: the matrix is linearly
+								dependent in terms of its row vectors or columns vectors), the result
+							returned will be 0.</p>
 						</li>
 					</ul>
 				</section>
@@ -307,7 +329,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#m">m</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L317">mat.ts:317</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L337">mat.ts:337</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -315,6 +337,23 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Float32Array</span></h4>
 							<p>The contents of the matrix, stored in column-major order and
 							encoded as a Float32Array.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="m20" class="tsd-anchor"></a>
+					<h3>m20</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> m20<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L57">2d/mat3.ts:57</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -328,7 +367,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L42">2d/mat3.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L41">2d/mat3.ts:41</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -345,24 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L46">2d/mat3.ts:46</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="r02" class="tsd-anchor"></a>
-					<h3>r02</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> r02<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L50">2d/mat3.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L45">2d/mat3.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -379,7 +401,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L54">2d/mat3.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L49">2d/mat3.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -396,41 +418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L58">2d/mat3.ts:58</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="r12" class="tsd-anchor"></a>
-					<h3>r12</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> r12<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L62">2d/mat3.ts:62</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="r20" class="tsd-anchor"></a>
-					<h3>r20</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> r20<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L66">2d/mat3.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L53">2d/mat3.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -447,7 +435,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L70">2d/mat3.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L61">2d/mat3.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -464,24 +452,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L74">2d/mat3.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L65">2d/mat3.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="rot_raw" class="tsd-anchor"></a>
-					<h3>rot_<wbr>raw</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> rot_raw<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-private">
+					<a name="rot_rad" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> rot_<wbr>rad</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> rot_rad<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L116">2d/mat3.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L99">2d/mat3.ts:99</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -499,7 +487,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L103">2d/mat3.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L86">2d/mat3.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/gml.angle.html" class="tsd-signature-type">Angle</a></h4>
@@ -507,7 +495,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L127">2d/mat3.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L110">2d/mat3.ts:110</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -531,7 +519,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L137">2d/mat3.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L120">2d/mat3.ts:120</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -539,7 +527,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L149">2d/mat3.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L132">2d/mat3.ts:132</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -563,7 +551,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L143">2d/mat3.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L126">2d/mat3.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -571,7 +559,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L155">2d/mat3.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L138">2d/mat3.ts:138</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -595,9 +583,17 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#trace">trace</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L124">mat.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L130">mat.ts:130</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>NOTE: a trace is only defined for square matrices.
+										If you try to acquire the trace of a nonsquare matrix, the library
+										will not stop you or throw an excpetion, but the result will be
+									undefined/incorrect.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
@@ -613,7 +609,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L78">2d/mat3.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L69">2d/mat3.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -621,7 +617,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L86">2d/mat3.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L77">2d/mat3.ts:77</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -645,7 +641,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L82">2d/mat3.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L73">2d/mat3.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -653,39 +649,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L90">2d/mat3.ts:90</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>v: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="w" class="tsd-anchor"></a>
-					<h3>w</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> w<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> w<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L94">2d/mat3.ts:94</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L98">2d/mat3.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L81">2d/mat3.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -712,9 +676,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L208">mat.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L223">mat.ts:223</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Componentwise addition of two matrices. Does not alter the original matrix.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -722,6 +691,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="gml.matrix.html" class="tsd-signature-type">Matrix</a></h4>
+							<p>a new matrix resulting from the addition</p>
 						</li>
 					</ul>
 				</section>
@@ -736,7 +706,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#column">column</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L169">2d/mat3.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L152">2d/mat3.ts:152</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -760,7 +730,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L87">mat.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L68">mat.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -787,7 +757,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#lu">lu</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L143">mat.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L144">mat.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -795,7 +765,7 @@
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 							<p>The LU decomposition of the matrix. If no such decomposition
 							exists, the l and u properties of the return object are both null.</p>
-							<p>Implements the Doolittle algorithm.</p>
+							<p>This implementation of LU decomposition uses the Doolittle algorithm.</p>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
 									<h5>l<span class="tsd-signature-symbol">: </span><a href="gml.matrix.html" class="tsd-signature-type">Matrix</a></h5>
@@ -819,7 +789,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#multiply">multiply</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L177">2d/mat3.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L160">2d/mat3.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -834,7 +804,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#multiply">multiply</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L178">2d/mat3.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L161">2d/mat3.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -858,7 +828,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#row">row</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L161">2d/mat3.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L144">2d/mat3.ts:144</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -882,7 +852,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#scalarmul">scalarmul</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L236">mat.ts:236</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L256">mat.ts:256</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -906,7 +876,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L91">mat.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L72">mat.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -926,6 +896,44 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="setcolumn" class="tsd-anchor"></a>
+					<h3>set<wbr>Column</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Column<span class="tsd-signature-symbol">(</span>c<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, col<span class="tsd-signature-symbol">: </span><a href="gml.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#setcolumn">setColumn</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L108">mat.ts:108</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a column in the matrix.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the column index</p>
+									</div>
+								</li>
+								<li>
+									<h5>col: <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the new contents of the column</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="setrow" class="tsd-anchor"></a>
 					<h3>set<wbr>Row</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -936,16 +944,27 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#setrow">setRow</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L103">mat.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L97">mat.ts:97</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a row in the matrix.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>r: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the row index</p>
+									</div>
 								</li>
 								<li>
 									<h5>row: <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the new contents of the row</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -963,9 +982,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#subtract">subtract</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L217">mat.ts:217</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L237">mat.ts:237</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Componentwise subtraction of two matrices. Does not alter the original matrix.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -973,6 +997,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="gml.matrix.html" class="tsd-signature-type">Matrix</a></h4>
+							<p>a new matrix resulting from the subtraction operation this - rhs</p>
 						</li>
 					</ul>
 				</section>
@@ -987,9 +1012,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#swaprows">swapRows</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L109">mat.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L117">mat.ts:117</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Swaps two rows in the matrix.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1014,7 +1044,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L276">mat.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L296">mat.ts:296</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1032,7 +1062,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#towolframstring">toWolframString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L295">mat.ts:295</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L315">mat.ts:315</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1050,10 +1080,68 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#transpose">transpose</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L83">mat.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L64">mat.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.matrix.html" class="tsd-signature-type">Matrix</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromcols" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Cols</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Cols<span class="tsd-signature-symbol">(</span>c1<span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a>, c2<span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a>, c3<span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.mat3.html" class="tsd-signature-type">Mat3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L179">2d/mat3.ts:179</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>c1: <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h5>
+								</li>
+								<li>
+									<h5>c2: <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h5>
+								</li>
+								<li>
+									<h5>c3: <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gml2d.mat3.html" class="tsd-signature-type">Mat3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromrows" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Rows</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Rows<span class="tsd-signature-symbol">(</span>r1<span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a>, r2<span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a>, r3<span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.mat3.html" class="tsd-signature-type">Mat3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L173">2d/mat3.ts:173</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>r1: <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h5>
+								</li>
+								<li>
+									<h5>r2: <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h5>
+								</li>
+								<li>
+									<h5>r3: <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gml2d.mat3.html" class="tsd-signature-type">Mat3</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1068,7 +1156,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#identity">identity</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L184">2d/mat3.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/mat3.ts#L167">2d/mat3.ts:167</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml2d.mat3.html" class="tsd-signature-type">Mat3</a></h4>
@@ -1086,7 +1174,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#matmul">matmul</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L244">mat.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L264">mat.ts:264</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1144,13 +1232,13 @@
 								<a href="gml2d.mat3.html#m" class="tsd-kind-icon">m</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="gml2d.mat3.html#m20" class="tsd-kind-icon">m20</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#r00" class="tsd-kind-icon">r00</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#r01" class="tsd-kind-icon">r01</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="gml2d.mat3.html#r02" class="tsd-kind-icon">r02</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#r10" class="tsd-kind-icon">r10</a>
@@ -1159,19 +1247,13 @@
 								<a href="gml2d.mat3.html#r11" class="tsd-kind-icon">r11</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="gml2d.mat3.html#r12" class="tsd-kind-icon">r12</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="gml2d.mat3.html#r20" class="tsd-kind-icon">r20</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#r21" class="tsd-kind-icon">r21</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#r22" class="tsd-kind-icon">r22</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="gml2d.mat3.html#rot_raw" class="tsd-kind-icon">rot_<wbr>raw</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-private">
+								<a href="gml2d.mat3.html#rot_rad" class="tsd-kind-icon">rot_<wbr>rad</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#rotation" class="tsd-kind-icon">rotation</a>
@@ -1190,9 +1272,6 @@
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="gml2d.mat3.html#ty" class="tsd-kind-icon">ty</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="gml2d.mat3.html#w" class="tsd-kind-icon">w</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="gml2d.mat3.html#add" class="tsd-kind-icon">add</a>
@@ -1219,6 +1298,9 @@
 								<a href="gml2d.mat3.html#set" class="tsd-kind-icon">set</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="gml2d.mat3.html#setcolumn" class="tsd-kind-icon">set<wbr>Column</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="gml2d.mat3.html#setrow" class="tsd-kind-icon">set<wbr>Row</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1235,6 +1317,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="gml2d.mat3.html#transpose" class="tsd-kind-icon">transpose</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gml2d.mat3.html#fromcols" class="tsd-kind-icon">from<wbr>Cols</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gml2d.mat3.html#fromrows" class="tsd-kind-icon">from<wbr>Rows</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-static">
 								<a href="gml2d.mat3.html#identity" class="tsd-kind-icon">identity</a>

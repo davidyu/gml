@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Vec3 | </title>
+	<title>Vec3 | gml</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title"></a>
+					<a href="../index.html" class="title">gml</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -70,6 +70,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A 2D homogenous vector (x, y, w) representing the point (x/w, y/w) or the
+						vector (x,y)</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -106,9 +114,10 @@
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.vec3.html#len" class="tsd-kind-icon">len</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.vec3.html#lensq" class="tsd-kind-icon">lensq</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite"><a href="gml2d.vec3.html#normalized" class="tsd-kind-icon">normalized</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.vec3.html#w" class="tsd-kind-icon">w</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.vec3.html#x" class="tsd-kind-icon">x</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.vec3.html#y" class="tsd-kind-icon">y</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="gml2d.vec3.html#z" class="tsd-kind-icon">z</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-static"><a href="gml2d.vec3.html#zero" class="tsd-kind-icon">zero</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -125,7 +134,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.vec3.html#normalize" class="tsd-kind-icon">normalize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="gml2d.vec3.html#subtract" class="tsd-kind-icon">subtract</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.vec3.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="gml2d.vec3.html#unit" class="tsd-kind-icon">unit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml2d.vec3.html#randomincircle" class="tsd-kind-icon">random<wbr>InCircle</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gml2d.vec3.html#randompositionincircle" class="tsd-kind-icon">random<wbr>Position<wbr>InCircle</a></li>
 							</ul>
 						</section>
 					</div>
@@ -139,14 +149,14 @@
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Vec3<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Vec3<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Vec3<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Vec3<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, w<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L4">2d/vec3.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L8">2d/vec3.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -161,7 +171,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L5">2d/vec3.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L9">2d/vec3.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,7 +186,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L6">2d/vec3.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L10">2d/vec3.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -188,7 +198,7 @@
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>z: <span class="tsd-signature-type">number</span></h5>
+									<h5>w: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h4>
@@ -205,7 +215,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#size">size</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L25">vec.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L8">vec.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +226,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#v">v</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L24">vec.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L7">vec.ts:7</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -239,7 +249,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#len">len</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L134">vec.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L117">vec.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -257,7 +267,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#lensq">lensq</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L138">vec.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L121">vec.ts:121</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -275,10 +285,42 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#normalized">normalized</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L69">2d/vec3.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L76">2d/vec3.ts:76</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="w" class="tsd-anchor"></a>
+					<h3>w</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> w<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> w<span class="tsd-signature-symbol">(</span>w<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L29">2d/vec3.ts:29</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L41">2d/vec3.ts:41</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>w: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -293,7 +335,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L17">2d/vec3.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L21">2d/vec3.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -301,7 +343,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L29">2d/vec3.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L33">2d/vec3.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -325,38 +367,6 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L21">2d/vec3.ts:21</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L33">2d/vec3.ts:33</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>y: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="z" class="tsd-anchor"></a>
-					<h3>z</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> z<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> z<span class="tsd-signature-symbol">(</span>z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
 									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L25">2d/vec3.ts:25</a></li>
 								</ul>
 							</aside>
@@ -371,10 +381,27 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>z: <span class="tsd-signature-type">number</span></h5>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
+					<a name="zero" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> zero</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> zero<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L103">2d/vec3.ts:103</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -392,7 +419,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L41">2d/vec3.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L45">2d/vec3.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -415,9 +442,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L65">2d/vec3.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L72">2d/vec3.ts:72</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Computes the &#39;2D&#39; cross product as if this were a 2D vector (Vec2)</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -439,7 +471,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#divide">divide</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L53">2d/vec3.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L57">2d/vec3.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -463,7 +495,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#dot">dot</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L61">2d/vec3.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L65">2d/vec3.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -487,7 +519,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#equals">equals</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L126">vec.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L109">vec.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -511,7 +543,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#map">map</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L74">2d/vec3.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L81">2d/vec3.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -553,7 +585,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#multiply">multiply</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L49">2d/vec3.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L53">2d/vec3.ts:53</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -577,7 +609,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#negate">negate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L57">2d/vec3.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L61">2d/vec3.ts:61</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h4>
@@ -595,7 +627,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#normalize">normalize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L148">vec.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L131">vec.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -619,7 +651,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#subtract">subtract</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L45">2d/vec3.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L49">2d/vec3.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -643,28 +675,64 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L172">vec.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L151">vec.ts:151</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="unit" class="tsd-anchor"></a>
-					<h3>unit</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">unit<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml.vector.html" class="tsd-signature-type">Vector</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="randomincircle" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> random<wbr>InCircle</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">random<wbr>InCircle<span class="tsd-signature-symbol">(</span>radius<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="gml.vector.html">Vector</a>.<a href="gml.vector.html#unit">unit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/vec.ts#L155">vec.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L89">2d/vec3.ts:89</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="gml.vector.html" class="tsd-signature-type">Vector</a></h4>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radius: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h4>
+							<p>a random directional Vec3 in a user-specified circle centered around the origin.
+							Note that the w-component of the Vec3 is 0.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="randompositionincircle" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> random<wbr>Position<wbr>InCircle</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">random<wbr>Position<wbr>InCircle<span class="tsd-signature-symbol">(</span>radius<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/2d/vec3.ts#L97">2d/vec3.ts:97</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radius: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gml2d.vec3.html" class="tsd-signature-type">Vec3</a></h4>
+							<p>a random positional Vec3 in a user-specified circle centered around the origin.
+							Note that the w-component of the Vec3 is 1.</p>
 						</li>
 					</ul>
 				</section>
@@ -716,13 +784,16 @@
 								<a href="gml2d.vec3.html#normalized" class="tsd-kind-icon">normalized</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="gml2d.vec3.html#w" class="tsd-kind-icon">w</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="gml2d.vec3.html#x" class="tsd-kind-icon">x</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="gml2d.vec3.html#y" class="tsd-kind-icon">y</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="gml2d.vec3.html#z" class="tsd-kind-icon">z</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
+								<a href="gml2d.vec3.html#zero" class="tsd-kind-icon">zero</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="gml2d.vec3.html#add" class="tsd-kind-icon">add</a>
@@ -757,8 +828,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="gml2d.vec3.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="gml2d.vec3.html#unit" class="tsd-kind-icon">unit</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gml2d.vec3.html#randomincircle" class="tsd-kind-icon">random<wbr>InCircle</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gml2d.vec3.html#randompositionincircle" class="tsd-kind-icon">random<wbr>Position<wbr>InCircle</a>
 							</li>
 						</ul>
 					</li>

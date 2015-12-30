@@ -3,7 +3,7 @@ SHELL = /bin/bash
 DOC=doc
 
 ts-doc:
-	typedoc --readme none --mode file --target ES5 --out $(DOC)/ts ts/src 
+	typedoc --readme none --mode file --name gml --target ES5 --out $(DOC)/ts ts/src --exclude **/gml.ts
 
 hx-doc:
 	pushd hx && haxe doc.hxml && popd
