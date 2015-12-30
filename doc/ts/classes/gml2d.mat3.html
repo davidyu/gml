@@ -241,7 +241,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#cols">cols</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L22">mat.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L32">mat.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +252,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#rows">rows</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L21">mat.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L31">mat.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,9 +263,17 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#v">v</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L20">mat.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L30">mat.ts:30</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The raw contents of the matrix, encoded as a Float32Array.
+								Note that this is stored in row-major order, so it cannot be
+								directly passed into WebGL uniform methods. Use the matrix.m
+							property, which returns a transposed Float32Array.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -281,7 +289,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#determinant">determinant</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L154">mat.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L189">mat.ts:189</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -299,10 +307,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#m">m</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L278">mat.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L317">mat.ts:317</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Float32Array</span></h4>
+							<p>The contents of the matrix, stored in column-major order and
+							encoded as a Float32Array.</p>
 						</li>
 					</ul>
 				</section>
@@ -583,7 +595,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#trace">trace</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L95">mat.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L124">mat.ts:124</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -700,7 +712,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#add">add</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L173">mat.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L208">mat.ts:208</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -748,7 +760,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#get">get</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L58">mat.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L87">mat.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -775,10 +787,15 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#lu">lu</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L108">mat.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L143">mat.ts:143</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+							<p>The LU decomposition of the matrix. If no such decomposition
+							exists, the l and u properties of the return object are both null.</p>
+							<p>Implements the Doolittle algorithm.</p>
 							<ul class="tsd-parameters">
 								<li class="tsd-parameter">
 									<h5>l<span class="tsd-signature-symbol">: </span><a href="gml.matrix.html" class="tsd-signature-type">Matrix</a></h5>
@@ -865,7 +882,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#scalarmul">scalarmul</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L201">mat.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L236">mat.ts:236</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -889,7 +906,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#set">set</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L62">mat.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L91">mat.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -919,7 +936,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#setrow">setRow</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L74">mat.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L103">mat.ts:103</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -946,7 +963,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#subtract">subtract</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L182">mat.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L217">mat.ts:217</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -970,7 +987,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#swaprows">swapRows</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L80">mat.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L109">mat.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -997,7 +1014,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#tostring">toString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L241">mat.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L276">mat.ts:276</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1015,7 +1032,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#towolframstring">toWolframString</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L260">mat.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L295">mat.ts:295</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1033,7 +1050,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#transpose">transpose</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L54">mat.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L83">mat.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="gml.matrix.html" class="tsd-signature-type">Matrix</a></h4>
@@ -1069,7 +1086,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="gml.matrix.html">Matrix</a>.<a href="gml.matrix.html#matmul">matmul</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L209">mat.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/mat.ts#L244">mat.ts:244</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
