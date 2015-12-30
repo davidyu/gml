@@ -9,29 +9,6 @@ declare module gml {
     }
     function fromRadians(rad: number): Angle;
     function fromDegrees(deg: number): Angle;
-    class Degree implements Angle {
-        v: number;
-        constructor(deg: number);
-        toDegrees(): number;
-        toRadians(): number;
-        add(rhs: Angle): Angle;
-        subtract(rhs: Angle): Angle;
-        negate(): Angle;
-        reduceToOneTurn(): Angle;
-        static zero: Angle;
-    }
-    class Radian implements Angle {
-        static TWO_PI: number;
-        v: number;
-        constructor(rad: number);
-        toRadians(): number;
-        toDegrees(): number;
-        add(rhs: Angle): Angle;
-        subtract(rhs: Angle): Angle;
-        negate(): Angle;
-        reduceToOneTurn(): Angle;
-        static zero: Angle;
-    }
 }
 declare module gml {
     class Easing {
@@ -243,6 +220,7 @@ declare module gml {
         static rotateX(angle: Angle): Mat4;
         static rotateZ(angle: Angle): Mat4;
         static rotate(axis: Vec4, angle: Angle): Mat4;
+        static translate(v: Vec4): Mat4;
     }
     function makeMat4FromRows(r1: Vec4, r2: Vec4, r3: Vec4, r4: Vec4): Mat4;
     function makeMat4FromCols(c1: Vec4, c2: Vec4, c3: Vec4, c4: Vec4): Mat4;

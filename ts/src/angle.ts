@@ -1,12 +1,25 @@
 // simple angle interface with explicit constructors
 
+/**
+ * The gml library is mostly designed with 3D usage (WebGL) in mind.
+ * It aspires to be performant, but is not yet up to par with incumbent
+ * libraries (EG: gl-matrix)
+ */
 module gml {
+  /**
+   * Construct Angles with gml.fromDegrees() or gml.fromRadians().
+   */
   export interface Angle {
     toDegrees(): number;
     toRadians(): number;
     add( rhs: Angle ): Angle;
     subtract( rhs: Angle ): Angle;
     negate(): Angle;
+
+   /**
+    * ensures the Angle is within one full turn. IE: between 0 and 360 degrees
+    * or 0 and 2 PI radians
+    */
     reduceToOneTurn(): Angle;
   }
 
@@ -19,7 +32,7 @@ module gml {
   }
 
   // implementation detail; no need to care about these classes
-  export class Degree implements Angle {
+  class Degree implements Angle {
     v: number;
 
     constructor( deg: number ) {
@@ -61,7 +74,7 @@ module gml {
     }
   }
 
-  export class Radian implements Angle {
+  class Radian implements Angle {
     public static get TWO_PI(): number { return 6.283185307179586; }
 
     v: number;
