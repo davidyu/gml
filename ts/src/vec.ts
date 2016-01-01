@@ -119,9 +119,11 @@ module gml {
     }
 
     public get lensq(): number {
-      return this.v.reduce( ( acc, c ) => {
-        return acc + c * c;
-      }, 0 );
+      let acc = 0;
+      for ( var i = 0; i < this.v.length; i++ ) {
+        acc += this.v[i] * this.v[i];
+      }
+      return acc;
     }
 
     /**
@@ -145,7 +147,7 @@ module gml {
     }
 
     public map( callback: ( v: number ) => number ): Vector {
-      return new Vector( this.size, this.v.map( callback ) );
+      return new Vector( this.size, Array.prototype.slice.call( this.v ).map( callback ) );
     }
 
     public toString(): string {

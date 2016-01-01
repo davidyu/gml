@@ -188,23 +188,68 @@ module gml {
     public multiply( rhs: Mat4 ): Mat4;
     public multiply( s: number ): Mat4;
     public multiply( arg: any ): Mat4 {
-      var m = super.multiply( arg );
-      return new Mat4( m.v );
+      if ( arg instanceof Mat4 ) {
+        return Mat4.matmul( this, arg );
+      } else {
+        return this.scalarmul( arg );
+      }
     }
 
     public scalarmul( s: number ): Mat4 {
-      var m = super.scalarmul( s );
-      return new Mat4( m.v );
+      return new Mat4( this.v[ 0] * s
+                     , this.v[ 1] * s
+                     , this.v[ 2] * s
+                     , this.v[ 3] * s
+                     , this.v[ 4] * s
+                     , this.v[ 5] * s
+                     , this.v[ 6] * s
+                     , this.v[ 7] * s
+                     , this.v[ 8] * s
+                     , this.v[ 9] * s
+                     , this.v[10] * s
+                     , this.v[11] * s
+                     , this.v[12] * s
+                     , this.v[13] * s
+                     , this.v[14] * s
+                     , this.v[15] * s );
     }
 
     public subtract( rhs: Mat4 ): Mat4 {
-      var m = super.subtract( rhs );
-      return new Mat4( m.v );
+      return new Mat4( this.v[ 0] - rhs.v[ 0]
+                     , this.v[ 1] - rhs.v[ 1]
+                     , this.v[ 2] - rhs.v[ 2]
+                     , this.v[ 3] - rhs.v[ 3]
+                     , this.v[ 4] - rhs.v[ 4]
+                     , this.v[ 5] - rhs.v[ 5]
+                     , this.v[ 6] - rhs.v[ 6]
+                     , this.v[ 7] - rhs.v[ 7]
+                     , this.v[ 8] - rhs.v[ 8]
+                     , this.v[ 9] - rhs.v[ 9]
+                     , this.v[10] - rhs.v[10]
+                     , this.v[11] - rhs.v[11]
+                     , this.v[12] - rhs.v[12]
+                     , this.v[13] - rhs.v[13]
+                     , this.v[14] - rhs.v[14]
+                     , this.v[15] - rhs.v[15] );
     }
 
     public add( rhs: Matrix ): Mat4 {
-      var m = super.add( rhs );
-      return new Mat4( m.v );
+      return new Mat4( this.v[ 0] + rhs.v[ 0]
+                     , this.v[ 1] + rhs.v[ 1]
+                     , this.v[ 2] + rhs.v[ 2]
+                     , this.v[ 3] + rhs.v[ 3]
+                     , this.v[ 4] + rhs.v[ 4]
+                     , this.v[ 5] + rhs.v[ 5]
+                     , this.v[ 6] + rhs.v[ 6]
+                     , this.v[ 7] + rhs.v[ 7]
+                     , this.v[ 8] + rhs.v[ 8]
+                     , this.v[ 9] + rhs.v[ 9]
+                     , this.v[10] + rhs.v[10]
+                     , this.v[11] + rhs.v[11]
+                     , this.v[12] + rhs.v[12]
+                     , this.v[13] + rhs.v[13]
+                     , this.v[14] + rhs.v[14]
+                     , this.v[15] + rhs.v[15] );
     }
 
     public transform( rhs: Vec4 ): Vec4 {
@@ -225,6 +270,38 @@ module gml {
       let b = ( 1 / 2 ) * ( tr * tr - tr2 );
       let c = m2.scalarmul( tr ).subtract( m3 );
       return Mat4.identity().scalarmul( a ).subtract( this.scalarmul( b ) ).add( c ).scalarmul( 1 / d );
+    }
+
+    /**
+     * @returns the determinant of Mat4.
+     *
+     * Hand-rolled for Mat4 to avoid call to Mat.LU, which is unoptimized and
+     * expensive for real-time applications.
+     */
+    public get determinant(): number {
+      let m00 = this.v[ 0];
+      let m01 = this.v[ 1];
+      let m02 = this.v[ 2];
+      let m03 = this.v[ 3];
+      let m10 = this.v[ 4];
+      let m11 = this.v[ 5];
+      let m12 = this.v[ 6];
+      let m13 = this.v[ 7];
+      let m20 = this.v[ 8];
+      let m21 = this.v[ 9];
+      let m22 = this.v[10];
+      let m23 = this.v[11];
+      let m30 = this.v[12];
+      let m31 = this.v[13];
+      let m32 = this.v[14];
+      let m33 = this.v[15];
+
+      return m03 * m12 * m21 * m30 - m02 * m13 * m21 * m30 - m03 * m11 * m22 * m30 + m01 * m13 * m22 * m30 +
+             m02 * m11 * m23 * m30 - m01 * m12 * m23 * m30 - m03 * m12 * m20 * m31 + m02 * m13 * m20 * m31 +
+             m03 * m10 * m22 * m31 - m00 * m13 * m22 * m31 - m02 * m10 * m23 * m31 + m00 * m12 * m23 * m31 +
+             m03 * m11 * m20 * m32 - m01 * m13 * m20 * m32 - m03 * m10 * m21 * m32 + m00 * m13 * m21 * m32 +
+             m01 * m10 * m23 * m32 - m00 * m11 * m23 * m32 - m02 * m11 * m20 * m33 + m01 * m12 * m20 * m33 +
+             m02 * m10 * m21 * m33 - m00 * m12 * m21 * m33 - m01 * m10 * m22 * m33 + m00 * m11 * m22 * m33;
     }
 
     public transpose(): Mat4 {
@@ -325,6 +402,59 @@ module gml {
                      , c1.y, c2.y, c3.y, c4.y
                      , c1.z, c2.z, c3.z, c4.z
                      , c1.w, c2.w, c3.w, c4.w );
+    }
+
+    public static matmul( lhs: Mat4, rhs: Mat4 ): Mat4 {
+      let l00 = lhs.v[ 0];
+      let l01 = lhs.v[ 1];
+      let l02 = lhs.v[ 2];
+      let l03 = lhs.v[ 3];
+      let l10 = lhs.v[ 4];
+      let l11 = lhs.v[ 5];
+      let l12 = lhs.v[ 6];
+      let l13 = lhs.v[ 7];
+      let l20 = lhs.v[ 8];
+      let l21 = lhs.v[ 9];
+      let l22 = lhs.v[10];
+      let l23 = lhs.v[11];
+      let l30 = lhs.v[12];
+      let l31 = lhs.v[13];
+      let l32 = lhs.v[14];
+      let l33 = lhs.v[15];
+      let r00 = rhs.v[ 0];
+      let r01 = rhs.v[ 1];
+      let r02 = rhs.v[ 2];
+      let r03 = rhs.v[ 3];
+      let r10 = rhs.v[ 4];
+      let r11 = rhs.v[ 5];
+      let r12 = rhs.v[ 6];
+      let r13 = rhs.v[ 7];
+      let r20 = rhs.v[ 8];
+      let r21 = rhs.v[ 9];
+      let r22 = rhs.v[10];
+      let r23 = rhs.v[11];
+      let r30 = rhs.v[12];
+      let r31 = rhs.v[13];
+      let r32 = rhs.v[14];
+      let r33 = rhs.v[15];
+
+      return new Mat4( l00 * r00 + l01 * r10 + l02 * r20 + l03 * r30
+                     , l00 * r01 + l01 * r11 + l02 * r21 + l03 * r31
+                     , l00 * r02 + l01 * r12 + l02 * r22 + l03 * r32
+                     , l00 * r03 + l01 * r13 + l02 * r23 + l03 * r33
+                     , l10 * r00 + l11 * r10 + l12 * r20 + l13 * r30
+                     , l10 * r01 + l11 * r11 + l12 * r21 + l13 * r31
+                     , l10 * r02 + l11 * r12 + l12 * r22 + l13 * r32
+                     , l10 * r03 + l11 * r13 + l12 * r23 + l13 * r33
+                     , l20 * r00 + l21 * r10 + l22 * r20 + l23 * r30
+                     , l20 * r01 + l21 * r11 + l22 * r21 + l23 * r31
+                     , l20 * r02 + l21 * r12 + l22 * r22 + l23 * r32
+                     , l20 * r03 + l21 * r13 + l22 * r23 + l23 * r33
+                     , l30 * r00 + l31 * r10 + l32 * r20 + l33 * r30
+                     , l30 * r01 + l31 * r11 + l32 * r21 + l33 * r31
+                     , l30 * r02 + l31 * r12 + l32 * r22 + l33 * r32
+                     , l30 * r03 + l31 * r13 + l32 * r23 + l33 * r33
+                     );
     }
   }
 
