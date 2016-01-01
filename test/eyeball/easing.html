@@ -1,0 +1,85 @@
+<html>
+    <head>
+      <script src="./gml.js" type="text/javascript"></script>
+      <title>Easing Inspector</title>
+    </head>
+    <body onload="init()">
+    <script type="text/javascript">
+      var fps = 30;
+      var dot;
+      var easing = gml.Easing.CubicInOut;
+
+      var juice = {
+        dx: 0.0,
+        maxdx: 120.0
+      }
+
+      var tween = {
+        duration: 1.0, // seconds
+        acc: 0.0,      // accumulated seconds
+        startx: 50,
+        endx: 450,
+      }
+
+      function init() {
+        dot = document.getElementById( "dot" );
+        setInterval( update, 1000 / fps );
+
+        // set up dropdown
+        {
+          var drop = document.getElementById( "easing-dropdown" );
+
+          var easeFuncs = Object.keys( gml.Easing );
+          easeFuncs.forEach( function( e ) {
+            var opt = document.createElement( 'option' );
+            opt.value = "gml.Easing." + e;
+            opt.innerHTML = e;
+            drop.appendChild( opt );
+          } );
+
+          drop.onchange = function( e ) {
+            easing = eval( drop.options[ drop.selectedIndex ].value );
+            play();
+          }
+        }
+      }
+
+      function update() {
+        // update tween data
+        if ( tween.acc < tween.duration ) {
+          tween.acc += Math.min( 1.0 / fps, tween.duration - tween.acc );
+        } else {
+          tween.acc = tween.duration;
+        }
+
+        var scalex = Math.min( Math.max( 1, Math.abs( juice.dx ) / juice.maxdx ), 1.2 );
+
+        dot.setAttribute( 'transform','scale(' + scalex + ',1)' );
+
+        var prevx = dot.cx.baseVal.value;
+        dot.cx.baseVal.value = tween.startx + easing( tween.acc / tween.duration ) * ( tween.endx - tween.startx );
+        juice.dx = dot.cx.baseVal.value - prevx;
+      }
+
+      function play() {
+        tween.acc = 0.0;
+        dot.cx.baseVal.value = tween.startx;
+        juice.dx = 0.0;
+      }
+    </script>
+    <div role="main" id="maincolumn">
+      <center>
+        <div id="screen">
+          <svg id="viewport" height="50px" width="500px">
+            <circle id="dot" cx="50" cy="10" r="10" stroke="black" stroke-width="0" fill="red" />
+          </svg>
+        </div>
+        <br class="vspace" />
+          <label>Select tween function</label>
+          <br/>
+          <select id="easing-dropdown">
+          </select>
+        </center>
+      </div>
+    </body>
+</html>
