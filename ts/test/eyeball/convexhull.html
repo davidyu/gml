@@ -1,0 +1,136 @@
+<html>
+    <head>
+      <script src="./gml2d.js" type="text/javascript"></script>
+      <title>Convex Hull Inspector</title>
+      <link rel="stylesheet" href="style.css"/>
+      <script type="text/javascript" src="common.js"></script>
+    </head>
+    <body onload="init()" onmouseup="dragend(event)" onmousemove="dragging(event)">
+    <script type="text/javascript">
+        var canvas;
+        var context;
+        var points;
+        var poly;
+        var volumeFunc;
+
+        function init() {
+            canvas = document.getElementById( "viewport" );
+            context = canvas.getContext( '2d' );
+
+            var POINTS_TO_PLOT = 50;
+            points = [];
+            for ( var i = 0; i < POINTS_TO_PLOT; i++ ) {
+                points.push( new gml2d.Vec2( Math.random() * canvas.width, Math.random() * canvas.height ) );
+            }
+
+            volumeFunc = gml2d.ComputeConvexHull;
+
+            computeHull( points )
+            visualizePoly( poly );
+            drawPoints( points );
+        }
+
+        function computeHull( points ) {
+            poly = volumeFunc( points );
+        }
+
+        function drawPoints( points ) {
+            points.forEach( function( p ) {
+                context.beginPath();
+                context.arc( p.x, p.y, 2, 0, 2 * Math.PI, false );
+                context.fillStyle = 'black';
+                context.fill();
+            } );
+        }
+
+        function visualizePoly( poly ) {
+            if ( poly.points != null ) {
+                context.beginPath();
+                context.moveTo( poly.points[0].x, poly.points[0].y );
+                context.lineWidth = 1;
+                context.fillStyle = gml2d.convex( poly ) ? LIGHT_GREEN : LIGHT_RED;
+
+                for ( var i = 0; i < poly.points.length; i++ ) {
+                    var p = poly.points[ (i+1) % poly.points.length ];
+                    context.lineTo( p.x, p.y );
+                }
+
+                context.fill();
+                context.stroke();
+            } else if ( poly.min != null && poly.max != null ) {
+                context.lineWidth = 1;
+                context.fillStyle = LIGHT_GREEN;
+                context.fillRect( poly.min.x, poly.min.y, poly.max.x - poly.min.x, poly.max.y - poly.min.y );
+                context.strokeRect( poly.min.x, poly.min.y, poly.max.x - poly.min.x, poly.max.y - poly.min.y );
+            }
+        }
+
+        var dragtarget;
+        var DRAG_HIT_DIST_THRESHOLD = 50;
+
+        var _mousepos = new gml2d.Vec2( 0, 0 );
+        function dragstart( e ) {
+            var offset = getOffset( canvas );
+
+            _mousepos.x = e.clientX - offset.x;
+            _mousepos.y = e.clientY - offset.y;
+
+            for ( var i = 0; i < points.length; i++ ) {
+                var p = points[i];
+                var d = gml2d.Vec2.squareDistance( _mousepos, p );
+                if ( d < DRAG_HIT_DIST_THRESHOLD ) {
+                    dragtarget = p;
+                    break;
+                }
+            }
+        }
+
+        function dragging( e ) {
+            if ( dragtarget == null ) return;
+
+            e.preventDefault();
+
+            var offset = getOffset( canvas );
+
+            _mousepos.x = e.clientX - offset.x;
+            _mousepos.y = e.clientY - offset.y;
+
+            if ( dragtarget != null ) {
+                dragtarget.x = Math.min( Math.max( 0, _mousepos.x ), canvas.width );
+                dragtarget.y = Math.min( Math.max( 0, _mousepos.y ), canvas.height );
+                context.clearRect( 0, 0, canvas.width, canvas.height );
+                computeHull( points )
+                visualizePoly( poly );
+                drawPoints( points );
+            }
+        }
+
+        function dragend( e ) {
+            dragtarget = null;
+        }
+
+        function updateEnclosingVolume( func ) {
+            volumeFunc = eval( func );
+
+            context.clearRect( 0, 0, canvas.width, canvas.height );
+            computeHull( points )
+            visualizePoly( poly );
+            drawPoints( points );
+        }
+    </script>
+    <div role="main" id="maincolumn">
+      <div id="screen">
+        <center>
+        <canvas id="viewport" height="500" width="500" onmousedown="dragstart(event)" onmouseup="dragend(event)">
+        </canvas>
+        <br/>
+        <br/>
+        <select name="Volumes" oninput="updateEnclosingVolume( this.value )">
+          <option value="gml2d.ComputeConvexHull">Convex Hull</option>
+          <option value="gml2d.ComputeAABB">AABB</option>
+        </select>
+        </center>
+      </div>
+    </div>
+    </body>
+</html>

@@ -7,10 +7,14 @@ module gml {
     constructor( x: number, y: number );
 
     constructor( ...args: any[] ) {
+      super( 2 );
       if ( args.length == 2 ) {
-        super( 2, args[0], args[1] );
+        this.v[0] = args[0];
+        this.v[1] = args[1];
       } else if ( args.length == 1 ) {
-        super( 2, args[0] );
+        let arr = args[0];
+        this.v[0] = arr[0];
+        this.v[1] = arr[1];
       }
     }
 
@@ -65,6 +69,36 @@ module gml {
 
     public static randomInCircle( radius: number = 1 ): Vec2 {
       return new Vec2( Math.random(), Math.random() ).normalized.multiply( radius );
+    }
+
+    public static add( lhs: Vec2, rhs: Vec2, out: Vec2 ): Vec2 {
+      out.x = lhs.x + rhs.x;
+      out.y = lhs.y + rhs.y;
+      return out;
+    }
+
+    public static subtract( lhs: Vec2, rhs: Vec2, out: Vec2 ): Vec2 {
+      out.x = lhs.x - rhs.x;
+      out.y = lhs.y - rhs.y;
+      return out;
+    }
+
+    public static multiply( lhs: Vec2, s: number, out: Vec2 ): Vec2 {
+      out.x = lhs.x * s;
+      out.y = lhs.y * s;
+      return out;
+    }
+
+    public static divide( lhs: Vec2, d: number, out: Vec2 ): Vec2 {
+      out.x = lhs.x / d;
+      out.y = lhs.y / d;
+      return out;
+    }
+
+    public static negate( lhs: Vec2, out: Vec2 ): Vec2 {
+      out.x = -lhs.x;
+      out.y = -lhs.y;
+      return out;
     }
 
     public static get zero(): Vec2 {

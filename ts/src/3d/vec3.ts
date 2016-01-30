@@ -7,10 +7,16 @@ module gml {
     constructor( x: number, y: number, z: number );
 
     constructor( ...args: any[] ) {
+      super( 3 );
       if ( args.length == 3 ) {
-        super( 3, args[0], args[1], args[2] );
+        this.v[0] = args[0];
+        this.v[1] = args[1];
+        this.v[2] = args[2];
       } else if ( args.length == 1 ) {
-        super( 3, args[0] );
+        let arr = args[0];
+        this.v[0] = arr[0];
+        this.v[1] = arr[1];
+        this.v[2] = arr[2];
       }
     }
 
@@ -107,6 +113,41 @@ module gml {
 
     public static randomInSphere( radius: number = 1 ): Vec3 {
       return new Vec3( Math.random(), Math.random(), Math.random() ).normalized.multiply( radius );
+    }
+
+    public static add( lhs: Vec3, rhs: Vec3, out: Vec3 ): Vec3 {
+      out.x = lhs.x + rhs.x;
+      out.y = lhs.y + rhs.y;
+      out.z = lhs.z + rhs.z;
+      return out;
+    }
+
+    public static subtract( lhs: Vec3, rhs: Vec3, out: Vec3 ): Vec3 {
+      out.x = lhs.x - rhs.x;
+      out.y = lhs.y - rhs.y;
+      out.z = lhs.z - rhs.z;
+      return out;
+    }
+
+    public static multiply( lhs: Vec3, s: number, out: Vec3 ): Vec3 {
+      out.x = lhs.x * s;
+      out.y = lhs.y * s;
+      out.z = lhs.z * s;
+      return out;
+    }
+
+    public static divide( lhs: Vec3, d: number, out: Vec3 ): Vec3 {
+      out.x = lhs.x / d;
+      out.y = lhs.y / d;
+      out.z = lhs.z / d;
+      return out;
+    }
+
+    public static negate( lhs: Vec3, out: Vec3 ): Vec3 {
+      out.x = -lhs.x;
+      out.y = -lhs.y;
+      out.z = -lhs.z;
+      return out;
     }
 
     public static get zero(): Vec3 {
