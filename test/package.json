@@ -9,9 +9,11 @@
         "karma-cli":"0.1.x",
         "jasmine-core":"2.x",
         "karma-jasmine":"0.3.x",
-        "karma-firefox-launcher": "~0.1",
+        "phantomjs": "latest",
+        "karma-phantomjs-launcher": "latest",
         "colors": "1.x",
-        "benchtable": "latest",
-        "gl-matrix": "latest"
+        "benchtable": "0.0.6",
+        "gl-matrix": "latest",
+        "easing-js": "latest"
     }
 }

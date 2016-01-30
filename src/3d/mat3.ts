@@ -8,10 +8,28 @@ module gml {
     constructor( r00: number, r01: number, tx: number, r10: number, r11: number, ty: number, m20: number, m21: number, m22: number );
 
     constructor( ...args: any[] ) {
+      super( 3, 3 );
       if ( args.length === 1 ) {
-        super( 3, 3, args[0] );
+        let arr = args[0];
+        this.v[0] = arr[0];
+        this.v[1] = arr[1];
+        this.v[2] = arr[2];
+        this.v[3] = arr[3];
+        this.v[4] = arr[4];
+        this.v[5] = arr[5];
+        this.v[6] = arr[6];
+        this.v[7] = arr[7];
+        this.v[8] = arr[8];
       } else {
-        super( 3, 3, args );
+        this.v[0] = args[0];
+        this.v[1] = args[1];
+        this.v[2] = args[2];
+        this.v[3] = args[3];
+        this.v[4] = args[4];
+        this.v[5] = args[5];
+        this.v[6] = args[6];
+        this.v[7] = args[7];
+        this.v[8] = args[8];
       }
     }
 
@@ -133,6 +151,26 @@ module gml {
       return new Vec3( this.r00 * rhs.x + this.r01 * rhs.y + this.r02 * rhs.z
                      , this.r10 * rhs.x + this.r11 * rhs.y + this.r12 * rhs.z
                      , this.r20 * rhs.x + this.r21 * rhs.y + this.r22 * rhs.z );
+    }
+
+    /**
+     * @returns the determinant of this 3x3 matrix.
+     *
+     * Hand expanded for speed and to avoid call to Mat.LU, which is unoptimized and
+     * expensive for real-time applications.
+     */
+    public get determinant(): number {
+      let m00 = this.v[0];
+      let m01 = this.v[1];
+      let m02 = this.v[2];
+      let m10 = this.v[3];
+      let m11 = this.v[4];
+      let m12 = this.v[5];
+      let m20 = this.v[6];
+      let m21 = this.v[7];
+      let m22 = this.v[8];
+
+      return m00 * m11 * m22 - m00 * m12 * m21 + m01 * m12 * m20 - m01 * m10 * m22;
     }
 
     /**

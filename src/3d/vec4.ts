@@ -7,10 +7,18 @@ module gml {
     constructor( x: number, y: number, z: number, w: number );
 
     constructor( ...args: any[] ) {
+      super( 4 );
       if ( args.length == 4 ) {
-        super( 4, args[0], args[1], args[2], args[3] );
+        this.v[0] = args[0];
+        this.v[1] = args[1];
+        this.v[2] = args[2];
+        this.v[3] = args[3];
       } else if ( args.length == 1 ) {
-        super( 4, args[0] );
+        let arr = args[0];
+        this.v[0] = arr[0];
+        this.v[1] = arr[1];
+        this.v[2] = arr[2];
+        this.v[3] = arr[3];
       }
     }
 
@@ -149,6 +157,46 @@ module gml {
       let random = new Vec4( Math.random(), Math.random(), Math.random(), 0 ).normalized.multiply( radius )
       random.w = 1;
       return random;
+    }
+
+    public static add( lhs: Vec4, rhs: Vec4, out: Vec4 ): Vec4 {
+      out.x = lhs.x + rhs.x;
+      out.y = lhs.y + rhs.y;
+      out.z = lhs.z + rhs.z;
+      out.w = lhs.w + rhs.w;
+      return out;
+    }
+
+    public static subtract( lhs: Vec4, rhs: Vec4, out: Vec4 ): Vec4 {
+      out.x = lhs.x - rhs.x;
+      out.y = lhs.y - rhs.y;
+      out.z = lhs.z - rhs.z;
+      out.w = lhs.w - rhs.w;
+      return out;
+    }
+
+    public static multiply( lhs: Vec4, s: number, out: Vec4 ): Vec4 {
+      out.x = lhs.x * s;
+      out.y = lhs.y * s;
+      out.z = lhs.z * s;
+      out.w = lhs.w * s;
+      return out;
+    }
+
+    public static divide( lhs: Vec4, d: number, out: Vec4 ): Vec4 {
+      out.x = lhs.x / d;
+      out.y = lhs.y / d;
+      out.z = lhs.z / d;
+      out.w = lhs.w / d;
+      return out;
+    }
+
+    public static negate( lhs: Vec4, out: Vec4 ): Vec4 {
+      out.x = -lhs.x;
+      out.y = -lhs.y;
+      out.z = -lhs.z;
+      out.w = -lhs.w;
+      return out;
     }
 
     public static get zero(): Vec4 {
