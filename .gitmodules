@@ -1,0 +1,9 @@
+[submodule "ts"]
+	path = ts
+	url = https://github.com/davidyu/gml-ts.git
+[submodule "hx"]
+	path = hx
+	url = https://github.com/davidyu/gml-hx.git
+[submodule "cpp"]
+	path = cpp
+	url = https://github.com/davidyu/gml-cpp.git
