@@ -108,6 +108,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="gml.html#fromradians" class="tsd-kind-icon">from<wbr>Radians</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="gml.html#makelookat" class="tsd-kind-icon">make<wbr>Look<wbr>At</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="gml.html#makeperspective" class="tsd-kind-icon">make<wbr>Perspective</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="gml.html#sign" class="tsd-kind-icon">sign</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,7 +126,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/angle.ts#L30">angle.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/davidyu/gml-ts/blob/master/src/angle.ts#L30">angle.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -148,7 +149,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/angle.ts#L26">angle.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/davidyu/gml-ts/blob/master/src/angle.ts#L26">angle.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -171,7 +172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L538">3d/mat4.ts:538</a></li>
+									<li>Defined in <a href="https://github.com/davidyu/gml-ts/blob/master/src/3d/mat4.ts#L538">3d/mat4.ts:538</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -203,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/desktop/gml/blob/master/ts/src/3d/mat4.ts#L523">3d/mat4.ts:523</a></li>
+									<li>Defined in <a href="https://github.com/davidyu/gml-ts/blob/master/src/3d/mat4.ts#L523">3d/mat4.ts:523</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -222,6 +223,33 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../classes/gml.mat4.html" class="tsd-signature-type">Mat4</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="sign" class="tsd-anchor"></a>
+					<h3>sign</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">sign<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/davidyu/gml-ts/blob/master/src/utils.ts#L6">utils.ts:6</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>0 if the number is sufficiently close to 0; -1 if the number is less than 0;
+							1 if the number is greater than 0.</p>
 						</li>
 					</ul>
 				</section>
@@ -287,6 +315,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="gml.html#makeperspective" class="tsd-kind-icon">make<wbr>Perspective</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="gml.html#sign" class="tsd-kind-icon">sign</a>
 					</li>
 				</ul>
 			</nav>
